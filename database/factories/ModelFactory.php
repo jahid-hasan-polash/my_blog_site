@@ -21,3 +21,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 
+$factory->define(App\Blog::class, function (Faker\Generator $faker) {
+    return [
+        'title' =>$faker->sentence(40),
+        'views' =>$faker->numberBetween($min = 112, $max = 215),
+        'share' =>$faker->numberBetween($min = 1, $max = 15),
+        'like' =>$faker->numberBetween($min = 1, $max = 15),
+        'tag' =>$faker->word,
+        'image' =>$faker->imageUrl($width = 558, $height = 221),
+        'details' => $faker->paragraph,
+    ];
+});
+
