@@ -11,8 +11,8 @@
         "zizaco/entrust": "dev-laravel-5",
         "laravel/cashier": "~5.0",
         "ellipsesynergie/api-response": "^0.12.1",
-        "oriceon/oauth-5-laravel": "dev-master",
-        "fzaninotto/faker": "^1.5"
+        "oriceon/oauth-5-laravel": "dev-master"
+
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

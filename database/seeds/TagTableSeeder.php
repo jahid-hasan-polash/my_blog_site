@@ -1,19 +1,16 @@
 <?php
-use App\Blog;
+use App\Tag;
 use Illuminate\Database\Seeder;
 
-class BlogTableSeeder extends Seeder
+class TagTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-
-
     public function run()
     {
-        factory(Blog::class,100)->create();
+        factory(Tag::class,10)->create();
     }
-
 }

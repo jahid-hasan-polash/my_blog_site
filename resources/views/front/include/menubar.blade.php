@@ -14,10 +14,9 @@
 
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav">
-                    <li><a href="index-2.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li class="active"><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{!! route('front.blog') !!}">Blog</a></li>
+                    <li><a href="{!! route('front.about') !!}">About</a></li>
+                    <li><a href="{!! route('front.contact') !!}">Contact</a></li>
                 </ul>
             </div>
 

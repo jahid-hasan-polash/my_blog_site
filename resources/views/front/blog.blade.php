@@ -9,8 +9,7 @@
             </div>
             <div class="col-lg-8 col-sm-8">
                 <ol class="breadcrumb pull-right">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Pages</a></li>
+                    <li><a href="{!! route('front.blog') !!}">Home</a></li>
                     <li class="active">Blog</li>
                 </ol>
             </div>
@@ -28,263 +27,92 @@
     <div class="row">
         <!--blog start-->
         <div class="col-lg-9 ">
+
+
+            <!--Start of Blog Item -->
+            @foreach($blog as $blogs)
             <div class="blog-item">
                 <div class="row">
+
                     <div class="col-lg-2 col-sm-2">
                         <div class="date-wrap">
-                            <span class="date">10</span>
-                            <span class="month">September</span>
+                            <span class="date">{!! \App\Blog::customDay($blogs->id)!!}</span>
+                            <span class="month">{!! \App\Blog::customMonth($blogs->id)!!}</span>
                         </div>
+
+
                         <div class="comnt-wrap">
                                 <span class="comnt-ico">
                                      <i class="fa fa-comments" aria-hidden="true"></i>
                                 </span>
-
                             <span class="value">15</span>
                         </div>
                     </div>
+
+
                     <div class="col-lg-10 col-sm-10">
                         <div class="blog-img">
-                            <img src="front/img/blog/img1.jpg" alt=""/>
+                            <img src="{!! $blogs->image !!}" alt=""/>
                         </div>
-
                     </div>
+
                 </div>
+
                 <div class="row">
                     <div class="col-lg-2 col-sm-2 text-right">
+
                         <div class="author">
                             By <a href="#">Admin</a>
                         </div>
+
                         <ul class="list-unstyled">
-                            <li><a href="javascript:;"><em>travel</em></a></li>
-                            <li><a href="javascript:;"><em>tour</em></a></li>
-                            <li><a href="javascript:;"><em>recreation</em></a></li>
-                            <li><a href="javascript:;"><em>tourism</em></a></li>
+                            <li><a href="javascript:;"><em>{!! $blogs->tag !!}</em></a></li>
                         </ul>
+
+
                         <div class="shate-view">
                             <ul class="list-unstyled">
-                                <li><a href="javascript:;">209 View</a></li>
-                                <li><a href="javascript:;">23 Share</a></li>
-
+                                <li><a href="javascript:;">{!! $blogs->views !!} Views</a></li>
+                                <li><a href="javascript:;">{!! $blogs->share !!} Share</a></li>
+                                <li><a href="javascript:;">{!! $blogs->like !!} Likes</a></li>
                             </ul>
                         </div>
                     </div>
+
                     <div class="col-lg-10 col-sm-10">
-                        <h1><a href="blog_detail.html">Suspendisse dignissim in sem eget pulvinar. Mauris aliquam nulla at libero pretium.</a></h1>
-                        <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                        <a href="blog_detail.html" class="btn btn-danger">Continue Reading</a>
+                        <h1><a href="{!! route('front.blog_details',$blogs->id) !!}">{!! $blogs->title !!}</a></h1>
+                        <p>{!! $blogs->details !!}</p>
+                        <a href="{!! route('front.blog_details',$blogs->id) !!}" class="btn btn-danger">Continue Reading</a>
                     </div>
+
                 </div>
             </div>
-            <div class="blog-item">
-                <div class="row">
-                    <div class="col-lg-2 col-sm-2">
-                        <div class="date-wrap">
-                            <span class="date">04</span>
-                            <span class="month">September</span>
-                        </div>
-                        <div class="comnt-wrap">
-                                <span class="comnt-ico">
-                                    <i class="fa fa-comments"></i>
-                                </span>
-                            <span class="value">15</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-sm-10">
-                        <div class="blog-img">
-                            <img src="front/img/blog/img2.jpg" alt=""/>
-                        </div>
+            @endforeach
+       <!-- End of Blog Item -->
 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2 col-sm-2 text-right">
-                        <div class="author">
-                            By <a href="#">Admin</a>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li><a href="javascript:;"><em>travel</em></a></li>
-                            <li><a href="javascript:;"><em>tour</em></a></li>
-                            <li><a href="javascript:;"><em>recreation</em></a></li>
-                            <li><a href="javascript:;"><em>tourism</em></a></li>
-                        </ul>
-                        <div class="shate-view">
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:;">209 View</a></li>
-                                <li><a href="javascript:;">23 Share</a></li>
 
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-sm-10">
-                        <h1><a href="blog_detail.html">Suspendisse dignissim in sem eget pulvinar. Mauris aliquam nulla at libero pretium.</a></h1>
-                        <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                        <a href="blog_detail.html" class="btn btn-danger">Continue Reading</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-item">
-                <div class="row">
-                    <div class="col-lg-2 col-sm-2">
-                        <div class="date-wrap">
-                            <span class="date">09</span>
-                            <span class="month">September</span>
-                        </div>
-                        <div class="comnt-wrap">
-                                <span class="comnt-ico">
-                                    <i class="fa fa-comments"></i>
-                                </span>
-                            <span class="value">15</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-sm-10">
-                        <div class="blog-img">
-                            <img src="front/img/blog/img3.jpg" alt=""/>
-                        </div>
 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2 col-sm-2 text-right">
-                        <div class="author">
-                            By <a href="#">Admin</a>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li><a href="javascript:;"><em>travel</em></a></li>
-                            <li><a href="javascript:;"><em>tour</em></a></li>
-                            <li><a href="javascript:;"><em>recreation</em></a></li>
-                            <li><a href="javascript:;"><em>tourism</em></a></li>
-                        </ul>
-                        <div class="shate-view">
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:;">209 View</a></li>
-                                <li><a href="javascript:;">23 Share</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-sm-10">
-                        <h1><a href="blog_detail.html">Suspendisse dignissim in sem eget pulvinar. Mauris aliquam nulla at libero pretium.</a></h1>
-                        <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                        <a href="blog_detail.html" class="btn btn-danger">Continue Reading</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-item">
-                <div class="row">
-                    <div class="col-lg-2 col-sm-2">
-                        <div class="date-wrap">
-                            <span class="date">24</span>
-                            <span class="month">September</span>
-                        </div>
-                        <div class="comnt-wrap">
-                                <span class="comnt-ico">
-                                    <i class="fa fa-comments"></i>
-                                </span>
-                            <span class="value">15</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-sm-10">
-                        <div class="blog-img">
-                            <img src="front/img/blog/img4.jpg" alt=""/>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2 col-sm-2 text-right">
-                        <div class="author">
-                            By <a href="#">Admin</a>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li><a href="javascript:;"><em>travel</em></a></li>
-                            <li><a href="javascript:;"><em>tour</em></a></li>
-                            <li><a href="javascript:;"><em>recreation</em></a></li>
-                            <li><a href="javascript:;"><em>tourism</em></a></li>
-                        </ul>
-                        <div class="shate-view">
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:;">209 View</a></li>
-                                <li><a href="javascript:;">23 Share</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-sm-10">
-                        <h1><a href="blog_detail.html">Suspendisse dignissim in sem eget pulvinar. Mauris aliquam nulla at libero pretium.</a></h1>
-                        <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                        <a href="blog_detail.html" class="btn btn-danger">Continue Reading</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-item">
-                <div class="row">
-                    <div class="col-lg-2 col-sm-2">
-                        <div class="date-wrap">
-                            <span class="date">18</span>
-                            <span class="month">September</span>
-                        </div>
-                        <div class="comnt-wrap">
-                                <span class="comnt-ico">
-                                    <i class="fa fa-comments"></i>
-                                </span>
-                            <span class="value">15</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-sm-10">
-                        <div class="blog-img">
-                            <img src="front/img/blog/img1.jpg" alt=""/>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2 col-sm-2 text-right">
-                        <div class="author">
-                            By <a href="#">Admin</a>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li><a href="javascript:;"><em>travel</em></a></li>
-                            <li><a href="javascript:;"><em>tour</em></a></li>
-                            <li><a href="javascript:;"><em>recreation</em></a></li>
-                            <li><a href="javascript:;"><em>tourism</em></a></li>
-                        </ul>
-                        <div class="shate-view">
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:;">209 View</a></li>
-                                <li><a href="javascript:;">23 Share</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-10 col-sm-10">
-                        <h1><a href="blog_detail.html">Suspendisse dignissim in sem eget pulvinar. Mauris aliquam nulla at libero pretium.</a></h1>
-                        <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                        <a href="blog_detail.html" class="btn btn-danger">Continue Reading</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center">
+            <!--paginate -->
+           <div class="text-center">
                 <ul class="pagination">
-                    <li><a href="#">«</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
+                    {!!$blog->render()!!}
                 </ul>
             </div>
+            <!--end of paginate -->
+
+
 
         </div>
 
+        <!-- Right side bar -->
         <div class="col-lg-3">
             <div class="blog-side-item">
                 <div class="search-row">
                     <input type="text" class="form-control" placeholder="Search here">
                 </div>
-                <div class="category">
+
+                <!-- category -->
+             <!--   <div class="category">
                     <h3>Categories</h3>
                     <ul class="list-unstyled">
                         <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> Animals</a></li>
@@ -293,45 +121,12 @@
                         <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> Wild Life</a></li>
                         <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> Video</a></li>
                     </ul>
-                </div>
+                </div> -->
+                <!--end of category -->
 
-                <div class="blog-post">
-                    <h3>Latest Blog Post</h3>
-                    <div class="media">
-                        <a class="pull-left" href="javascript:;">
-                            <img class=" " src="front/img/blog/blog-thumb-1.jpg" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h5 class="media-heading"><a href="javascript:;">02 May 2013 </a></h5>
-                            <p>
-                                Donec id elit non mi porta gravida at eget metus amet int
-                            </p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <a class="pull-left" href="javascript:;">
-                            <img class=" " src="front/img/blog/blog-thumb-2.jpg" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h5 class="media-heading"><a href="javascript:;">02 May 2013 </a></h5>
-                            <p>
-                                Donec id elit non mi porta gravida at eget metus amet int
-                            </p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <a class="pull-left" href="javascript:;">
-                            <img class=" " src="front/img/blog/blog-thumb-3.jpg" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h5 class="media-heading"><a href="javascript:;">02 May 2013 </a></h5>
-                            <p>
-                                Donec id elit non mi porta gravida at eget metus amet int
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
+
+                <!-- tags list -->
                 <div class="tags">
                     <h3>Tags</h3>
                     <ul class="list-unstyled tag">
@@ -347,8 +142,33 @@
                         <li><a href="#"> Dashboard</a></li>
                     </ul>
                 </div>
+                <!-- tags list end-->
 
 
+
+                <!-- Latest Post -->
+                <div class="blog-post">
+                   <b> <h3>Latest Blog Post</h3></b>
+                    @foreach($recent as $new)
+                    <div class="media">
+                        <a class="pull-left" href="javascript:;">
+                            <img class=" " src="{!! $new->img_thumbnail !!}" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="media-heading"><a href="javascript:;">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
+                            <p>
+                                {!! $new->title !!}
+                            </p>
+                        </div>
+                    </div>
+                    @endforeach
+
+                </div>
+                <!-- End of Latest Post -->
+
+
+
+                <!-- Archive -->
                 <div class="archive">
                     <h3>Archive</h3>
                     <ul class="list-unstyled">
@@ -359,10 +179,11 @@
                         <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> January 2013</a></li>
                     </ul>
                 </div>
-
+                <!-- Archive End -->
 
             </div>
         </div>
+        <!-- end of Right side bar -->
 
         <!--blog end-->
     </div>

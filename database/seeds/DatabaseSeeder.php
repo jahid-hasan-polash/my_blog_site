@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(EntrustTableSeeder::class);
+        $this->call(TagTableSeeder::class);
         $this->call(BlogTableSeeder::class);
 
         if (env('DB_CONNECTION') == 'mysql') {

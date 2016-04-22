@@ -5,19 +5,19 @@
             <div class="col-lg-3 col-sm-3">
                 <h1>contact info</h1>
                 <address>
-                    <p>Address: No.28-63877 street</p>
-                    <p>lorem ipsum city, Country</p>
-
-                    <p>Phone : (123) 456-7890</p>
-                    <p>Fax : (123) 456-7890</p>
-                    <p>Email : <a href="javascript:;">support@vectorlab.com</a></p>
+                    <p>Address: CSE,SUST</p>
+                    <p>Sylhet, Bangladesh</p>
+                    <p>Phone : (+88) 01967402131</p>
+                    <p>Email : <a href="javascript:;">talhaqc@gmail.com</a></p>
                 </address>
             </div>
             <div class="col-lg-5 col-sm-5">
-                <h1>latest tweet</h1>
+                <h1>Developer Quote</h1>
                 <div class="tweet-box">
-                    <i class="fa fa-twitter"></i>
-                    <em>Please follow <a href="javascript:;">@nettus</a> for all future updates of us! <a href="javascript:;">twitter.com/vectorlab</a></em>
+                    <i class="fa fa-search"></i>
+                    <em>Imagination is nothing without doing. <br/>
+                                   Update Yourself with new Technologies.
+                    </em>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-3 col-lg-offset-1">

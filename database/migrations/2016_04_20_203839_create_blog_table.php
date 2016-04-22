@@ -14,13 +14,17 @@ class CreateBlogTable extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->index();
             $table->string('title');
             $table->text('details');
             $table->integer('views')->default(0);
             $table->integer('share')->default(0);
             $table->integer('like')->default(0);
-            $table->string('tag');
+            $table->string('tag'); //if use pivot table then hide it
             $table->string('image');
+            $table->string('img_thumbnail');
+            $table->string('meta_data')->unique();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->timestamps();
         });
     }
