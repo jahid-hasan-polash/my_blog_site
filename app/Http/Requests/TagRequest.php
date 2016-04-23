@@ -24,7 +24,7 @@ class TagRequest extends Request
     public function rules()
     {
         return [
-            'name' =>'require'
+
         ];
     }
 }

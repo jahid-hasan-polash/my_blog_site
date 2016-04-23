@@ -80,9 +80,9 @@
                     </div>
 
                     <div class="col-lg-10 col-sm-10">
-                        <h1><a href="{!! route('front.blog_details',$blogs->id) !!}">{!! $blogs->title !!}</a></h1>
+                        <h1><a href="{!! route('front.blog_details',$blogs->meta_data) !!}">{!! $blogs->title !!}</a></h1>
                         <p>{!! $blogs->details !!}</p>
-                        <a href="{!! route('front.blog_details',$blogs->id) !!}" class="btn btn-danger">Continue Reading</a>
+                        <a href="{!! route('front.blog_details',$blogs->meta_data) !!}" class="btn btn-danger">Continue Reading</a>
                     </div>
 
                 </div>
@@ -130,16 +130,9 @@
                 <div class="tags">
                     <h3>Tags</h3>
                     <ul class="list-unstyled tag">
-                        <li><a href="#">flat</a></li>
-                        <li><a href="#"> clean</a></li>
-                        <li><a href="#"> admin</a></li>
-                        <li><a href="#"> UI</a></li>
-                        <li><a href="#"> responsive</a></li>
-                        <li><a href="#"> Web Design</a></li>
-                        <li><a href="#"> UIX</a></li>
-                        <li><a href="#"> Blog</a></li>
-                        <li><a href="#">flat Admin</a></li>
-                        <li><a href="#"> Dashboard</a></li>
+                        @foreach($tag as $new_tag)
+                        <li><a href="#">{!! $new_tag->name !!}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <!-- tags list end-->
@@ -155,7 +148,7 @@
                             <img class=" " src="{!! $new->img_thumbnail !!}" alt="">
                         </a>
                         <div class="media-body">
-                            <h5 class="media-heading"><a href="javascript:;">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
+                            <h5 class="media-heading"><a href="{!! route('front.blog_details',$new->meta_data) !!}">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
                             <p>
                                 {!! $new->title !!}
                             </p>

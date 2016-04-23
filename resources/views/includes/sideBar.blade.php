@@ -16,22 +16,40 @@
             <nav class="navigation">
                 <ul class="list-unstyled">
 
-                     <li class="{!! Menu::areActiveURLs(['dashboard', 'change-password']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">UI Elements</span></a>
+                    <!-- Dashboard -->
+                    <li class="{!! Menu::isActiveRoute('dashboard') !!}">
+                        <a href="{!!  URL::route( 'dashboard') !!}"><i class="ion-stats-bars"></i>Dash</a>
+                    </li>
+
+                     <li class="{!! Menu::areActiveURLs(['tag.index', 'tag.create']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Tag</span></a>
                         <ul class="list-unstyled">
 
-                            <li class="{!! Menu::isActiveURL('dashboard') !!}">
-                                <a href="{!!  URL::to( 'dashboard') !!}">Dashboard</a>
+                            <li class="{!! Menu::isActiveRoute('tag.index') !!}">
+                                <a href="{!!  URL::route( 'tag.index') !!}">All Tag</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveURL('change-password') !!}">
-                                <a href="{!!  URL::to( 'change-password') !!}">Password Change</a>
+                            <li class="{!! Menu::isActiveURL('tag.create') !!}">
+                                <a href="{!!  URL::to( 'tag.create') !!}">Create Tag</a>
                             </li>
                         </ul>
                     </li>
 
 
 
+                    <li class="{!! Menu::areActiveURLs(['blog.index', 'blog.create']) !!}"><a href="#"><i class="ion-compose"></i> <span class="nav-label">Blog</span></a>
+                        <ul class="list-unstyled">
 
+                            <li class="{!! Menu::isActiveRoute('blog.index') !!}">
+                                <a href="{!!  URL::route( 'blog.index') !!}">All Blog</a>
+                            </li>
+
+                            <li class="{!! Menu::isActiveURL('blog.create') !!}">
+                                <a href="{!!  URL::route('blog.create') !!}">Create Blog</a>
+                            </li>
+                        </ul>
+                    </li>
+
+<!--
                     <li class="has-submenu"><a href="#"><i class="ion-compose"></i> <span class="nav-label">Forms</span></a>
                         <ul class="list-unstyled">
                             <li><a href="#">General Elements</a></li>
@@ -76,6 +94,7 @@
                         </ul>
                     </li>
 
+  -->
                 </ul>
             </nav>
 

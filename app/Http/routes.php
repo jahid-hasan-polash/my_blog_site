@@ -53,7 +53,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 Route::get('blog-all', array('as' => 'front.blog', 'uses' => 'FrontViewController@frontView')); //front view
-Route::get('blog-details/{id}', array('as' => 'front.blog_details', 'uses' => 'FrontViewController@frontBlogDetails')); //front view
+Route::get('blog-details/{meta_data}', array('as' => 'front.blog_details', 'uses' => 'FrontViewController@frontBlogDetails')); //front view
 Route::get('about', array('as' => 'front.about', 'uses' => 'FrontViewController@about'));
 
 Route::get('contact', array('as' => 'front.contact', 'uses' => 'ContactController@contact'));
@@ -73,7 +73,7 @@ Route::get('tag/create', array('as' => 'tag.create', 'uses' => 'TagController@cr
 Route::post('tag', array('as' => 'tag.store', 'uses' => 'TagController@store'));
 Route::get('tag/{id}/edit', array('as' => 'tag.edit', 'uses' => 'TagController@edit'));
 Route::put('tag/{id}/update', array('as' => 'tag.update', 'uses' => 'TagController@update'));
-Route::delete('tag/{id}', array('as' => 'tag.delete', 'uses' => 'TagController@delete'));
+Route::delete('tag/{id}', array('as' => 'tag.delete', 'uses' => 'TagController@destroy'));
 
 
 
@@ -82,7 +82,7 @@ Route::get('comment/create', array('as' => 'comment.create', 'uses' => 'CommentC
 Route::post('comment', array('as' => 'comment.store', 'uses' => 'CommentController@store'));
 Route::get('comment/{id}/edit', array('as' => 'comment.edit', 'uses' => 'CommentController@edit'));
 Route::put('comment/{id}/update', array('as' => 'comment.update', 'uses' => 'CommentController@update'));
-Route::delete('comment/{id}', array('as' => 'comment.delete', 'uses' => 'CommentController@delete'));
+Route::delete('comment/{id}', array('as' => 'comment.delete', 'uses' => 'CommentController@destroy'));
 
 
 

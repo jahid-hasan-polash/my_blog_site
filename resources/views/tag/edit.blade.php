@@ -28,7 +28,7 @@
 
 
 
-                                    {!!Form::model($tag,['route' => ['category.update',$tag->id], 'method' => 'put' ])!!}
+                                    {!!Form::model($tag,['route' => ['tag.update',$tag->id], 'method' => 'put' ])!!}
 
 
                                     <div class="form-group">

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Http\Requests\BlogRequest;
@@ -20,20 +20,22 @@ class FrontViewController extends Controller
      */
     public function frontView()
     {
+        $tag= Tag::all();
         $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
         $blog = Blog::orderBy('id', 'desc')->paginate(5);
-        return view('front.blog', compact('blog','recent'))->with('title',"Blog");
+        return view('front.blog', compact('blog','recent','tag'))->with('title',"Blog");
     }
 
 
     /**
      * @return $this
      */
-    public function frontBlogDetails($id)
+    public function frontBlogDetails($meta_data)
     {
-         $blog = Blog::findOrFail($id);
+         $tag= Tag::all();
+         $blog = Blog::where('meta_data','=',$meta_data)->first();
          $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
-         return view('front.blog_details', compact('blog','recent'))->with('title',"Blog Details");
+         return view('front.blog_details', compact('blog','recent','tag'))->with('title',"Blog Details");
     }
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Tag;
 use App\Http\Requests\BlogRequest;
 use Redirect;
 use Carbon\Carbon;
@@ -21,7 +22,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blog = Blog::all();
+        $blog = Blog::orderBy('id', 'desc')->get();
         return view('blog.index', compact('blog'))->with('title',"All Blog List");
     }
 
@@ -32,7 +33,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blog.create')->with('title',"Create New Blog");
+        $tag= Tag::lists('name','name');
+        return view('blog.create',compact('tag'))->with('title',"Create New Blog");
     }
 
     /**
@@ -43,6 +45,7 @@ class BlogController extends Controller
      */
     public function store(BlogRequest $request)
     {
+        return $request->all();
         $blog = new Blog();
         $blog->title = $request->title;
         $blog->details = $request->details;
