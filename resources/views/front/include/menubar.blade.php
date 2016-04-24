@@ -8,7 +8,7 @@
                     <span class="fa fa-bar"></span>
                     <span class="fa fa-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{!! route('front.blog') !!}">Talhas'<span> Blog</span></a>
+                <a class="navbar-brand" href="{!! route('front.blog') !!}">Tech <span> Blog</span></a>
             </div>
 
 

@@ -7,10 +7,12 @@ use App\Blog;
 use App\Tag;
 use App\Http\Requests\BlogRequest;
 use Redirect;
-use Carbon\Carbon;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Pagination;
+use Intervention\Image\ImageManagerStatic as Image;
+use Carbon\Carbon;
 class BlogController extends Controller
 {
 
@@ -45,18 +47,40 @@ class BlogController extends Controller
      */
     public function store(BlogRequest $request)
     {
+
         //return $request->all();
         $blog = new Blog();
+
+        /**************************Image*******************/
+        if($request->hasFile('image')){
+
+            $image = $request->file('image');
+            $fullImage = 'upload/blog/fullImage/image-'.$request->meta_data.'-'.strtotime(date('Y-m-d H:i:s')).'.jpg';
+            $thumbnail = 'upload/blog/thumbnail/thumbnail-'.$request->meta_data.'-'.strtotime(date('Y-m-d H:i:s')).'.jpg';
+
+            Image::make($image)->resize(558, 221)->save(public_path($fullImage));
+            Image::make($image)->resize(81, 81)->save(public_path($thumbnail));
+            $blog->image = $fullImage;
+            $blog->img_thumbnail = $thumbnail;
+
+        }else{
+
+            return redirect()->route('blog.index')->with('error','File Not Found');
+        }
+        /**************************Image*******************/
         $blog->title = $request->title;
         $blog->details = $request->details;
         $blog->tag = $request->tag;
         $blog->image = $request->image;
         $blog->meta_data = $request->meta_data;
-        $blog->user_id = Auth::user()->id;
-        $blog->save();
-        return Redirect::route('blog.index')->with('success','Blog Successfully Created');
-    }
+        $blog->user_id =  \Auth::user()->id;
 
+
+       //  $blog->save();
+
+
+        return redirect()->route('blog.index')->with('success','Blog Successfully Created');
+    }
     /**
      * Display the specified resource.
      *
@@ -98,8 +122,7 @@ class BlogController extends Controller
         $blog->tag = $request->tag;
         $blog->meta_data = $request->meta_data;
         //$blog->image = $request->image;
-        $blog->save();
-        return Redirect::route('blog.index')->with('success','Blog Updated Successfully');
+        return redirect()->route('blog.index')->with('success','Blog Updated Successfully');
     }
 
     /**
@@ -112,6 +135,6 @@ class BlogController extends Controller
     {
          Blog::destroy($id);
 
-        return Redirect::route('blog.index')->with('success',"Blog Successfully deleted");
+        return redirect()->route('blog.index')->with('success',"Blog Successfully deleted");
     }
 }

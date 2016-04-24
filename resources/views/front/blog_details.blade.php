@@ -54,11 +54,16 @@
                 <div class="row">
                     <div class="col-lg-2 col-sm-2 text-right">
                         <div class="author">
-                            By <a href="#">Admin</a>
+                            By <a href="#">{!! App\User::findOrfail($blog->user_id)->pluck('name') !!}</a>
                         </div>
+
+
                         <ul class="list-unstyled">
-                            <li><a href="javascript:;"><em>{!! $blog->tag !!}</em></a></li>
+                            <li><a href="javascript:;"><em>{!!$blog->tag !!}</em></a></li>
                         </ul>
+
+
+
                         <div class="shate-view">
                             <ul class="list-unstyled">
                                 <li><a href="javascript:;">{!! $blog->views !!} Views</a></li>
@@ -67,112 +72,21 @@
                             </ul>
                         </div>
                     </div>
+
+
                     <div class="col-lg-10 col-sm-10">
                         <h1>{!! $blog->title !!}</h1>
                         <p>{!! $blog->details !!}</p>
+                        <hr>
+                        <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Like(23)</a>
+                        <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike(04)</a>
+                        <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-share"></span> Share(123)</a>
+                        <hr>
 
 
+                          <!-- Start Comments Section-->
 
-                  <!--      <div class="media">
-                            <h3>Comments</h3>
-                            <hr>
-                            <a class="pull-left" href="javascript:;">
-                                <img class="media-object" src="front/img/avatar1.jpg" alt="">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">
-                                    Anjelina Joli <span>|</span>
-                                    <span>12 July 2013, 10:20 </span>
-                                </h4>
-                                <p>
-                                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                                </p>
-                                <a href="javascript:;">Reply</a>
-                                <hr>
-                                <!-- Nested media object -->
-                               <!-- <div class="media">
-                                    <a class="pull-left" href="javascript:;">
-                                        <img class="media-object" src="front/img/avatar2.jpg" alt="">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">
-                                            Tom Cruse <span>|</span>
-                                            <span>12 July 2013, 10:30 </span>
-                                        </h4>
-                                        <p>
-                                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                                        </p>
-                                        <a href="javascript:;">Reply</a>
-                                    </div>
-                                </div>
-                                <!--end media-->
-                           <!--     <hr>
-                                <div class="media">
-                                    <a class="pull-left" href="javascript:;">
-                                        <img class="media-object" src="front/img/avatar1.jpg" alt="">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">
-                                            Nicol Kidman <span>|</span>
-                                            <span>12 July 2013, 10:40 </span>
-                                        </h4>
-                                        <p>
-                                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                                        </p>
-                                        <a href="javascript:;">Reply</a>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!--end media-->
-                         <!--   </div>
-                        </div> -->
-
-<!--
-                        <div class="media">
-                            <a class="pull-left" href="javascript:;">
-                                <img class="media-object" src="front/img/avatar2.jpg" alt="">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">
-                                    Tom Cruse <span>|</span>
-                                    <span>12 July 2013, 11:10 </span>
-                                </h4>
-                                <p>
-                                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                                </p>
-                                <a href="javascript:;">Reply</a>
-                            </div>
-                        </div>
--->
-
-                    <!--    <div class="post-comment">
-                            <h3 class="skills">Post Comments</h3>
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <div class="col-lg-4">
-                                        <input type="text" placeholder="Name" class="col-lg-12 form-control">
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <input type="text" placeholder="Email" class="col-lg-12 form-control">
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <input type="text" placeholder="2*five=? *" class="col-lg-12 form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-lg-12">
-                                        <textarea placeholder="Message" rows="8" class=" form-control"></textarea>
-                                    </div>
-                                </div>
-                                <p>
-                                    <button type="submit" class="btn btn-danger pull-right">Post Comment</button>
-                                </p>
-                            </form>
-                        </div> -->
-
-
+                          <!-- End Comments Section-->
 
                     </div>
                 </div>
@@ -244,11 +158,11 @@
                 <div class="archive">
                     <h3>Archive</h3>
                     <ul class="list-unstyled">
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> May 2013</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> April 2013</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> March 2013</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> February 2013</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> January 2013</a></li>
+                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> May 2016</a></li>
+                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> April 2016</a></li>
+                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> March 2016</a></li>
+                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> February 2016</a></li>
+                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> January 2016</a></li>
                     </ul>
                 </div>
                 <!-- Archive End -->
@@ -263,4 +177,8 @@
     </div>
 </div>
 <!--container end-->
+@stop
+
+@section('script')
+
 @stop

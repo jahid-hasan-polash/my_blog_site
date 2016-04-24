@@ -109,8 +109,6 @@ Route::delete('comment/{id}', array('as' => 'comment.delete', 'uses' => 'Comment
 
 
 
-
-
 /**********Velonic  Admin  starts ************/
 /*
 Route::get('profile1',function(){

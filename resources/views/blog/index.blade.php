@@ -137,6 +137,7 @@
     </script>
 
 
+
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function() {
             /* do not add datatable method/function here , its always loaded from footer -- masiur */

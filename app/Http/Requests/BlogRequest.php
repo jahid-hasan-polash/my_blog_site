@@ -24,7 +24,12 @@ class BlogRequest extends Request
     public function rules()
     {
         return [
-            //
+            'title'=>'required',
+            'meta_data'=>'required',
+            'tag'=>'required',
+            'details'=>'required',
+            'image'=>'required',
+
         ];
     }
 }

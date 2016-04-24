@@ -6,7 +6,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="front/img/favicon.html">
 
-    <title>FlatLab Frontend | Blog</title>
+    <title>{!! $title !!}</title>
 
     <!-- Bootstrap core CSS -->
     {!! Html::style('front/css/bootstrap.min.css') !!}

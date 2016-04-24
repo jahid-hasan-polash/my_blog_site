@@ -28,7 +28,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="panel-body">
 
-                                    {!! Form::open(array('route' => 'blog.store') ) !!}
+                                    {!! Form::open(array('route' => 'blog.store',  'files' => true) ) !!}
 
                                     <div class="form-group">
                                         {!! Form::label('title', 'Title :', array('class' => 'col-md-2 control-label')) !!}
@@ -51,7 +51,8 @@
                                     </div><br>
 
                                     <div class="form-group">
-                                        {!!Form::file('image','',array('class' => 'form-control','placeholder' => 'Enter details of blog' ))!!}
+                                        {!! Form::label('image', 'Choose an image') !!}
+                                        {!! Form::file('image') !!}
                                     </div> <br>
 
                                     <div class="form-group">
