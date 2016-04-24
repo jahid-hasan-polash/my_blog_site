@@ -21,14 +21,14 @@
                         <a href="{!!  URL::route( 'dashboard') !!}"><i class="ion-stats-bars"></i>Dash</a>
                     </li>
 
-                     <li class="{!! Menu::areActiveURLs(['tag.index', 'tag.create']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Tag</span></a>
+                     <li class="{!! Menu::areActiveRoutes(['tag.index', 'tag.create']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Tag</span></a>
                         <ul class="list-unstyled">
 
                             <li class="{!! Menu::isActiveRoute('tag.index') !!}">
                                 <a href="{!!  URL::route( 'tag.index') !!}">All Tag</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveURL('tag.create') !!}">
+                            <li class="{!! Menu::isActiveRoute('tag.create') !!}">
                                 <a href="{!!  URL::to( 'tag.create') !!}">Create Tag</a>
                             </li>
                         </ul>
@@ -36,14 +36,14 @@
 
 
 
-                    <li class="{!! Menu::areActiveURLs(['blog.index', 'blog.create']) !!}"><a href="#"><i class="ion-compose"></i> <span class="nav-label">Blog</span></a>
+                    <li class="{!! Menu::areActiveRoutes(['blog.index', 'blog.create']) !!}"><a href="#"><i class="ion-compose"></i> <span class="nav-label">Blog</span></a>
                         <ul class="list-unstyled">
 
                             <li class="{!! Menu::isActiveRoute('blog.index') !!}">
                                 <a href="{!!  URL::route( 'blog.index') !!}">All Blog</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveURL('blog.create') !!}">
+                            <li class="{!! Menu::isActiveRoute('blog.create') !!}">
                                 <a href="{!!  URL::route('blog.create') !!}">Create Blog</a>
                             </li>
                         </ul>

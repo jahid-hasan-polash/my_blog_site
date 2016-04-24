@@ -32,7 +32,7 @@ $factory->define(App\Blog::class, function (Faker\Generator $faker) {
         'tag' =>$faker->word,
         'image' =>$faker->imageUrl($width = 558, $height = 221),
         'img_thumbnail' =>$faker->imageUrl($width = 81, $height = 81),
-        'details' => $faker->paragraph,
+        'details' => $faker->sentence(500),
         'user_id' => 1,
         'meta_data' => $faker->unique()->word,
     ];

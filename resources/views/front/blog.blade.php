@@ -62,7 +62,7 @@
                     <div class="col-lg-2 col-sm-2 text-right">
 
                         <div class="author">
-                            By <a href="#">Admin</a>
+                            By <a href="#">{!! App\User::findOrfail($blogs->user_id)->pluck('name') !!}</a>
                         </div>
 
                         <ul class="list-unstyled">
@@ -81,7 +81,7 @@
 
                     <div class="col-lg-10 col-sm-10">
                         <h1><a href="{!! route('front.blog_details',$blogs->meta_data) !!}">{!! $blogs->title !!}</a></h1>
-                        <p>{!! $blogs->details !!}</p>
+                        <p>{!! \Str::limit($blogs->details,300) !!}</p>
                         <a href="{!! route('front.blog_details',$blogs->meta_data) !!}" class="btn btn-danger">Continue Reading</a>
                     </div>
 

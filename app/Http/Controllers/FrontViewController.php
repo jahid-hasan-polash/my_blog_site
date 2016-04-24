@@ -45,5 +45,21 @@ class FrontViewController extends Controller
 
 
 
+    public function quote(){
+        $url = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+        $json = file_get_contents($url);
+        $datas = json_decode($json, true);
+
+        foreach ($datas['property_data'] as $data) {
+
+
+
+        }
+
+
+    }
+
+
+
 
 }

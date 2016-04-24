@@ -45,7 +45,7 @@ class BlogController extends Controller
      */
     public function store(BlogRequest $request)
     {
-        return $request->all();
+        //return $request->all();
         $blog = new Blog();
         $blog->title = $request->title;
         $blog->details = $request->details;
@@ -76,9 +76,11 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
+        $tag= Tag::lists('name','name');
+        $tag_type=  Blog::where('id',$id)->pluck('tag');
         $blog = Blog::findOrFail($id);
 
-        return view('blog.edit', compact('blog'))->with('title',"Edit Blog");
+        return view('blog.edit', compact('blog','tag_type','tag'))->with('title',"Edit Blog");
     }
 
     /**

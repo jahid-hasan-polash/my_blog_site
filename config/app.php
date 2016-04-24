@@ -201,6 +201,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Entrust'   =>Zizaco\Entrust\EntrustFacade::class,
         'OAuth'     => Artdarek\OAuth\Facade\OAuth::class,
+        'Str'      => 'Illuminate\Support\Str',
     ],
 
 ];

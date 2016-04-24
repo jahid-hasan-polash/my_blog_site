@@ -12,12 +12,16 @@
                 </address>
             </div>
             <div class="col-lg-5 col-sm-5">
-                <h1>Developer Quote</h1>
+                <h1>Moment's Quote</h1>
                 <div class="tweet-box">
-                    <i class="fa fa-search"></i>
-                    <em>Imagination is nothing without doing. <br/>
-                                   Update Yourself with new Technologies.
-                    </em>
+
+                    <blockquote id="qod-quote">
+                        ... loading ...
+                    </blockquote>
+                    {{-- using api for quote--}}
+                    <script src="http://quotesondesign.com/api/3.0/api-3.0.js"
+                            type="text/javascript" charset="utf-8"></script>
+                    <!-- end of use api -->
                 </div>
             </div>
             <div class="col-lg-3 col-sm-3 col-lg-offset-1">
@@ -53,6 +57,8 @@
 
  <!--common script for all pages-->
  {!! Html::script('front/js/common-scripts.js') !!}
+
+
 
 
 
