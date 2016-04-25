@@ -16,6 +16,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{!! route('front.blog') !!}">Blog</a></li>
                     <li><a href="{!! route('front.about') !!}">About</a></li>
+                    <li><a href="{!! route('front.archive') !!}">Archive</a></li>
                     <li><a href="{!! route('front.contact') !!}">Contact</a></li>
                 </ul>
             </div>

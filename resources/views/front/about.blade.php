@@ -33,21 +33,23 @@
                         <div class="active item">
                             <img src="front/img/about_1.jpg" alt="">
                             <div class="carousel-caption">
-                                <p>Donec luctus ullamcorper nulla</p>
+                                <p>Data Science</p>
                             </div>
                         </div>
                         <div class="item">
                             <img src="front/img/about_2.jpg" alt="">
                             <div class="carousel-caption">
-                                <p>Blanditiis praesentium voluptatum</p>
+                                <p>Create the world with others</p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="front/img/about_1.jpg" alt="">
+                            <img src="front/img/about_3.jpg" alt="">
                             <div class="carousel-caption">
-                                <p>Honest and amazing things that bring positive results</p>
+                                <p>Get all resource with a click</p>
                             </div>
                         </div>
+
+
                     </div>
                     <!-- Carousel nav -->
                     <a class="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -60,16 +62,18 @@
             </div>
         </div>
         <div class="col-lg-7 about">
-            <h3>Welcome to FlatLab</h3>
+            <h3> Welcome To Tech Blog</h3>
             <p>
-                Welcome To Avada
-                Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore dolore magnm aliquam quaerat voluptatem.
+                This blog site is for those programmer or developer who want to learn about new technology, new framework.
             </p>
             <p>
-                Aenean nibh ante, lacinia non tincidunt nec, lobortis ut tellus. Sed in porta diam. Suspendisse potenti. Donec luctus ullamcorper nulla. Duis nec velit odio.
+                We create this blog for sharing our knowledge with other developers, and also lear from others.
             </p>
+
         </div>
     </div>
+
+
     <div class="row">
         <div class="hiring">
             <div class="col-lg-6 col-sm-6">
@@ -77,8 +81,9 @@
                     <i class="fa fa-desktop"></i>
                 </div>
                 <div class="content">
-                    <h3 class="title">iOS / Mac OS Developer</h3>
-                    <p>Suspendisse dignissim in sem eget pulvinar. Mauris aliquam nulla at libero pretium, eu tincidunt nulla molestie pulvinar posuere.</p>
+                    <br>
+                    <h3 class="title">Php Development</h3>
+                    <br>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6">
@@ -86,13 +91,37 @@
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="content">
-                    <h3 class="title">Frontend Developer</h3>
-                    <p>Suspendisse dignissim in sem eget pulvinar. Mauris aliquam nulla at libero pretium, eu tincidunt nulla molestie pulvinar posuere.</p>
+                    <br>
+                    <h3 class="title">Android Development</h3>
+                    <br>
                 </div>
             </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="icon-wrap ico-bg round">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="content">
+                    <br>
+                    <h3 class="title">Laravel Development</h3>
+                    <br>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-6">
+                <div class="icon-wrap ico-bg round">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="content">
+                    <br>
+                    <h3 class="title">Frontend Development</h3>
+                    <br>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
+
 
 <div class="gray-box">
     <div class="container">
@@ -103,30 +132,38 @@
                     <section class="slider">
                         <div class="flexslider">
                             <ul class="slides about-flex-slides">
+
                                 <li>
                                     <div class="about-testimonial-image ">
-                                        <img alt="" src="front/img/testimonial-img-1.jpg">
+                                        <img alt="" src="front/img/avatar1.jpg">
                                     </div>
-                                    <a class="about-testimonial-author" href="#">Ericson Reagan</a>
-                                    <span class="about-testimonial-company">ABC Realestate LLC</span>
+                                    <a class="about-testimonial-author" href="#">Md. Abu Talha</a>
+                                    <span class="about-testimonial-company">Web Developer</span>
                                     <div class="about-testimonial-content">
                                         <p class="about-testimonial-quote">
-                                            Pellentesque et pulvinar enim. Quisque at tempor ligula. Maecenas augue ante, euismod vitae egestas sit amet, accumsan eu nulla. Nullam tempor lectus a ligula lobortis pretium. Donec ut purus sed tortor malesuada venenatis eget eget lorem.
+                                           3rd Year 2nd Semster Student,<br/>
+                                           Department Of Computer Science and Engineering,<br/>
+                                           Shahjalal University of Science and Technology, Sylhet.
                                         </p>
                                     </div>
                                 </li>
+
                                 <li>
                                     <div class="about-testimonial-image ">
                                         <img alt="" src="front/img/avatar2.jpg">
                                     </div>
-                                    <a class="about-testimonial-author" href="#">Jonathan Smith</a>
-                                    <span class="about-testimonial-company">DEF LLC</span>
+                                    <a class="about-testimonial-author" href="#">Nishikanto Sharkar Shimul</a>
+                                    <span class="about-testimonial-company">Android Developer</span>
                                     <div class="about-testimonial-content">
                                         <p class="about-testimonial-quote">
-                                            Pellentesque et pulvinar enim. Quisque at tempor ligula. Maecenas augue ante, euismod vitae egestas sit amet, accumsan eu nulla. Nullam tempor lectus a ligula lobortis pretium. Donec ut purus sed tortor malesuada venenatis eget eget lorem.
+                                            3rd Year 2nd Semster Student,<br/>
+                                            Department Of Computer Science and Engineering,<br/>
+                                            Shahjalal University of Science and Technology, Sylhet.
                                         </p>
                                     </div>
                                 </li>
+
+
                             </ul>
                         </div>
                     </section>
@@ -137,29 +174,29 @@
                 <h3 class="skills">Our Crazy Skills</h3>
                 <div class="about-skill-meter">
                     <div class="progress progress-xs">
-                        <div style="width: 60%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-danger">
-                            <span class="sr-only">Web Design : 60% Complete</span>
+                        <div style="width: 70%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-danger">
+                            <span class="sr-only">Php/Java </span>
                         </div>
                     </div>
                 </div>
                 <div class="about-skill-meter">
                     <div class="progress progress-xs">
-                        <div style="width: 90%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-danger">
-                            <span class="sr-only">Html/CSS : 90% Complete</span>
+                        <div style="width: 80%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-danger">
+                            <span class="sr-only">Html/CSS </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-skill-meter">
+                    <div class="progress progress-xs">
+                        <div style="width: 60%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-danger">
+                            <span class="sr-only">Laravel </span>
                         </div>
                     </div>
                 </div>
                 <div class="about-skill-meter">
                     <div class="progress progress-xs">
                         <div style="width: 70%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-danger">
-                            <span class="sr-only">Wordpress : 70% Complete</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-skill-meter">
-                    <div class="progress progress-xs">
-                        <div style="width: 55%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-danger">
-                            <span class="sr-only">Graphic Design : 55% Complete</span>
+                            <span class="sr-only">Android</span>
                         </div>
                     </div>
                 </div>
@@ -168,6 +205,7 @@
     </div>
 </div>
 
+<!--
 <div class="container">
     <div class="row">
         <div class="text-center feature-head">
@@ -232,7 +270,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!--container end-->
 
 @stop

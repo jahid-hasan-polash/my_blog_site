@@ -130,7 +130,9 @@
         <div class="col-lg-3">
             <div class="blog-side-item">
                 <div class="search-row">
-                    <input type="text" class="form-control" placeholder="Search here">
+                    {!! Form::open(array('route' => 'search.action',  'files' => true) ) !!}
+                    {!!Form::text('search_value','',array('class' => 'form-control','placeholder' => 'Search here' ))!!}
+                    {!! Form::close() !!}
                 </div>
 
                 <!-- category -->
@@ -187,11 +189,12 @@
                 <div class="archive">
                     <h3>Archive</h3>
                     <ul class="list-unstyled">
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> May 2016</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> April 2016</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> March 2016</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> February 2016</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> January 2016</a></li>
+                        @foreach ($links as  $posts)
+
+                            <li><a href="javascript:;"><i class="  fa fa-angle-right"></i>{{ $posts->year }}</a></li>
+
+                        @endforeach
+
                     </ul>
                 </div>
                 <!-- Archive End -->

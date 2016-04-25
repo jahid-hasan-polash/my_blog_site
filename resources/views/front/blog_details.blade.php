@@ -116,7 +116,9 @@
         <div class="col-lg-3">
             <div class="blog-side-item">
                 <div class="search-row">
-                    <input type="text" class="form-control" placeholder="Search here">
+                    {!! Form::open(array('route' => 'search.action',  'files' => true) ) !!}
+                    {!!Form::text('search_value','',array('class' => 'form-control','placeholder' => 'Search here' ))!!}
+                    {!! Form::close() !!}
                 </div>
 
                 <!-- category -->

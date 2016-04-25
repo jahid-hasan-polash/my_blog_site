@@ -59,6 +59,12 @@ Route::get('about', array('as' => 'front.about', 'uses' => 'FrontViewController@
 Route::get('contact', array('as' => 'front.contact', 'uses' => 'ContactController@contact'));
 Route::post('contact','ContactController@getContactUsForm');
 
+Route::post('search', array('as' => 'search.action', 'uses' => 'FrontViewController@search'));
+
+
+Route::get('archive', array('as' => 'front.archive', 'uses' => 'FrontViewController@archive'));
+
+
 Route::get('blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));
 Route::get('blog/create', array('as' => 'blog.create', 'uses' => 'BlogController@create'));
 Route::post('blog', array('as' => 'blog.store', 'uses' => 'BlogController@store'));
