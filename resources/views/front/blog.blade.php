@@ -29,17 +29,18 @@
         <div class="col-lg-9 ">
 
 
+     @if(!empty($blog->count()))
             <!--Start of Blog Item -->
-            @foreach($blog as $blogs)
-            <div class="blog-item">
+            @foreach($blog as $new_blog)
+
+                <div class="blog-item">
                 <div class="row">
 
                     <div class="col-lg-2 col-sm-2">
                         <div class="date-wrap">
-                            <span class="date">{!! \App\Blog::customDay($blogs->id)!!}</span>
-                            <span class="month">{!! \App\Blog::customMonth($blogs->id)!!}</span>
+                            <span class="date">{!! \App\Blog::customDay($new_blog->id)!!}</span>
+                            <span class="month">{!! \App\Blog::customMonth($new_blog->id)!!}</span>
                         </div>
-
 
                         <div class="comnt-wrap">
                                 <span class="comnt-ico">
@@ -47,48 +48,69 @@
                                 </span>
                             <span class="value">15</span>
                         </div>
+
                     </div>
 
 
                     <div class="col-lg-10 col-sm-10">
                         <div class="blog-img">
-                            <img src="{!! $blogs->image !!}" alt=""/>
+                            <img src="{!! $new_blog->image !!}" alt=""/>
                         </div>
                     </div>
 
                 </div>
+
 
                 <div class="row">
                     <div class="col-lg-2 col-sm-2 text-right">
 
                         <div class="author">
-                            By <a href="#">{!! App\User::findOrfail($blogs->user_id)->pluck('name') !!}</a>
+                            By <a href="#">{!! App\User::findOrfail($new_blog->user_id)->pluck('name') !!}</a>
                         </div>
 
                         <ul class="list-unstyled">
-                            <li><a href="javascript:;"><em>{!! $blogs->tag !!}</em></a></li>
+                            <li><a href="javascript:;"><em>{!! $new_blog->tag !!}</em></a></li>
                         </ul>
 
 
                         <div class="shate-view">
                             <ul class="list-unstyled">
-                                <li><a href="javascript:;">{!! $blogs->views !!} Views</a></li>
-                                <li><a href="javascript:;">{!! $blogs->share !!} Share</a></li>
-                                <li><a href="javascript:;">{!! $blogs->like !!} Likes</a></li>
+                                <li><a href="javascript:;">{!! $new_blog->views !!} Views</a></li>
+                                <li><a href="javascript:;">{!! $new_blog->share !!} Share</a></li>
+                                <li><a href="javascript:;">{!! $new_blog->like !!} Likes</a></li>
                             </ul>
                         </div>
+
                     </div>
 
                     <div class="col-lg-10 col-sm-10">
-                        <h1><a href="{!! route('front.blog_details',$blogs->meta_data) !!}">{!! $blogs->title !!}</a></h1>
-                        <p>{!! \Str::limit($blogs->details,300) !!}</p>
-                        <a href="{!! route('front.blog_details',$blogs->meta_data) !!}" class="btn btn-danger">Continue Reading</a>
+                        <h1><a href="{!! route('front.blog_details',$new_blog->meta_data) !!}">{!! $new_blog->title !!}</a></h1>
+                        <p>{!! \Str::limit($new_blog->details,300) !!}</p>
+                        <a href="{!! route('front.blog_details',$new_blog->meta_data) !!}" class="btn btn-danger">Continue Reading</a>
                     </div>
 
                 </div>
             </div>
             @endforeach
+
        <!-- End of Blog Item -->
+      @else
+
+                    <div class="blog-item">
+                        <div class="row">
+
+                            <div class="col-lg-10 col-sm-10">
+                                <div class="blog-img">
+                                    <h1>Whoops, No Blog Post Found With this Tag!!</h1>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+        @endif
+
 
 
 
@@ -131,7 +153,7 @@
                     <h3>Tags</h3>
                     <ul class="list-unstyled tag">
                         @foreach($tag as $new_tag)
-                        <li><a href="#">{!! $new_tag->name !!}</a></li>
+                        <li><a href="{!! route('blog.tag',$new_tag->name) !!}">{!! $new_tag->name !!}</a></li>
                         @endforeach
                     </ul>
                 </div>

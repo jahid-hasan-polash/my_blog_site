@@ -55,12 +55,13 @@ class BlogController extends Controller
         if($request->hasFile('image')){
 
             $image = $request->file('image');
-            $fullImage = 'upload/blog/fullImage/image-'.$request->meta_data.'-'.strtotime(date('Y-m-d H:i:s')).'.jpg';
-            $thumbnail = 'upload/blog/thumbnail/thumbnail-'.$request->meta_data.'-'.strtotime(date('Y-m-d H:i:s')).'.jpg';
+            $fullImage = '/upload/blog/fullImage/image-'.$request->meta_data.'-'.strtotime(date('Y-m-d H:i:s')).'.'.$image->getClientOriginalExtension();
+            $thumbnail = '/upload/blog/thumbnail/thumbnail-'.$request->meta_data.'-'.strtotime(date('Y-m-d H:i:s')).'.'.$image->getClientOriginalExtension();
 
             Image::make($image)->resize(558, 221)->save(public_path($fullImage));
             Image::make($image)->resize(81, 81)->save(public_path($thumbnail));
-            $blog->image = $fullImage;
+
+             $blog->image = $fullImage;
             $blog->img_thumbnail = $thumbnail;
 
         }else{
@@ -71,13 +72,9 @@ class BlogController extends Controller
         $blog->title = $request->title;
         $blog->details = $request->details;
         $blog->tag = $request->tag;
-        $blog->image = $request->image;
         $blog->meta_data = $request->meta_data;
         $blog->user_id =  \Auth::user()->id;
-
-
-       //  $blog->save();
-
+        $blog->save();
 
         return redirect()->route('blog.index')->with('success','Blog Successfully Created');
     }
@@ -114,7 +111,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BlogRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $blog = Blog::findOrFail($id);
         $blog->title = $request->title;
@@ -122,6 +119,8 @@ class BlogController extends Controller
         $blog->tag = $request->tag;
         $blog->meta_data = $request->meta_data;
         //$blog->image = $request->image;
+        $blog->save();
+
         return redirect()->route('blog.index')->with('success','Blog Updated Successfully');
     }
 

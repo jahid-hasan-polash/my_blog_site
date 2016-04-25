@@ -29,6 +29,7 @@
         <!--blog start-->
         <div class="col-lg-9">
 
+      @if(!empty($blog->id))
 
             <div class="blog-item">
                 <div class="row">
@@ -44,12 +45,13 @@
                             <span class="value">15</span>
                         </div>
                     </div>
+
                     <div class="col-lg-10 col-sm-10">
                         <div class="blog-img">
                             <img src="{!! $blog->image !!}" alt=""/>
                         </div>
-
                     </div>
+
                 </div>
                 <div class="row">
                     <div class="col-lg-2 col-sm-2 text-right">
@@ -92,9 +94,22 @@
                 </div>
 
             </div>
-
         </div>
+        @else
 
+            <div class="blog-item">
+                <div class="row">
+
+                    <div class="col-lg-10 col-sm-10">
+                        <div class="blog-img">
+                            <h1>Whoops, Blog Post not Found With This URL....</h1>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+        @endif
 
 
         <!-- Right side bar -->
@@ -124,7 +139,7 @@
                     <h3>Tags</h3>
                     <ul class="list-unstyled tag">
                         @foreach($tag as $new_tag)
-                            <li><a href="#">{!! $new_tag->name !!}</a></li>
+                            <li><a href="{!! route('blog.tag',$new_tag->tag) !!}">{!! $new_tag->name !!}</a></li>
                         @endforeach
                     </ul>
                 </div>

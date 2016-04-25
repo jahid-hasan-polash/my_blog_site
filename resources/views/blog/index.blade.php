@@ -16,7 +16,7 @@
                             <h3 class="panel-title">{!!$title!!}</h3>
 
                                         <span class="pull-right">
-                                               <a href="{!! route('tag.create')!!}"><button class="btn btn-success">Create Blog</button></a>
+                                               <a href="{!! route('blog.create')!!}"><button class="btn btn-success">Create Blog</button></a>
                                         </span>
                         </div><br>
 

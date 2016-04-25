@@ -2,7 +2,7 @@
 
 return [
     'names' =>[
-        'siteName' => 'Velonic'
+        'siteName' => 'Tech Blog'
     ],
     'roles' =>[
         'admin' => 'Admin',

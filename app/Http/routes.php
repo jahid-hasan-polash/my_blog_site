@@ -64,7 +64,9 @@ Route::get('blog/create', array('as' => 'blog.create', 'uses' => 'BlogController
 Route::post('blog', array('as' => 'blog.store', 'uses' => 'BlogController@store'));
 Route::get('blog/{id}/edit', array('as' => 'blog.edit', 'uses' => 'BlogController@edit'));
 Route::put('blog/{id}/update', array('as' => 'blog.update', 'uses' => 'BlogController@update'));
-Route::delete('blog/{id}', array('as' => 'blog.delete', 'uses' => 'BlogController@delete'));
+Route::delete('blog/{id}', array('as' => 'blog.delete', 'uses' => 'BlogController@destroy'));
+
+Route::get('blog-all/{tag}', array('as' => 'blog.tag', 'uses' => 'FrontViewController@tagAssociateBlog'));
 
 
 
