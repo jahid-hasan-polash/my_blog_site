@@ -7,5 +7,6 @@
 @yield('content')
 @include('front.include.footer')
 @yield('script')
+@include('front.include.disqus_comment')
 </body>
 </html>

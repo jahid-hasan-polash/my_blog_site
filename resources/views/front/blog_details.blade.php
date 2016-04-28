@@ -43,6 +43,7 @@
                                     <i class="fa fa-comments"></i>
                                 </span>
                             <span class="value">15</span>
+                            <span class="disqus-comment-count value" data-disqus-identifier="{{$blog->id}}"></span>
                         </div>
                     </div>
 
@@ -69,31 +70,34 @@
                         <div class="shate-view">
                             <ul class="list-unstyled">
                                 <li><a href="javascript:;">{!! $blog->views !!} Views</a></li>
-                                <li><a href="javascript:;">{!! $blog->share !!} Share</a></li>
-                                <li><a href="javascript:;">{!! $blog->like !!} Likes</a></li>
+                                {{--<li><a href="javascript:;">{!! $blog->share !!} Share</a></li>--}}
+                                <li><a href="javascript:;">{!! $blog->like !!} Recommend</a></li>
                             </ul>
                         </div>
+
+
                     </div>
 
 
                     <div class="col-lg-10 col-sm-10">
                         <h1>{!! $blog->title !!}</h1>
                         <p>{!! $blog->details !!}</p>
-                        <hr>
-                        <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Like(23)</a>
-                        <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike(04)</a>
-                        <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-share"></span> Share(123)</a>
-                        <hr>
-
-
-                          <!-- Start Comments Section-->
-
-                          <!-- End Comments Section-->
-
+                        {{--<hr>--}}
+                        {{--<a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Like(23)</a>--}}
+                        {{--<a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike(04)</a>--}}
+                        {{--<a href="#" class="btn btn-info"><span class="glyphicon glyphicon-share"></span> Share(123)</a>--}}
+                        {{--<hr>--}}
                     </div>
+
                 </div>
 
             </div>
+
+
+                <!-- Start Comments Section-->
+                <div id="disqus_thread"></div>
+                <!-- End Comments Section-->
+
         </div>
         @else
 

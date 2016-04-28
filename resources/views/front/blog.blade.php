@@ -76,8 +76,8 @@
                         <div class="shate-view">
                             <ul class="list-unstyled">
                                 <li><a href="javascript:;">{!! $new_blog->views !!} Views</a></li>
-                                <li><a href="javascript:;">{!! $new_blog->share !!} Share</a></li>
-                                <li><a href="javascript:;">{!! $new_blog->like !!} Likes</a></li>
+                                {{--<li><a href="javascript:;">{!! $new_blog->share !!} Share</a></li>--}}
+                                <li><a href="javascript:;">{!! $new_blog->like !!} Recommend</a></li>
                             </ul>
                         </div>
 
@@ -186,17 +186,17 @@
 
 
                 <!-- Archive -->
-                <div class="archive">
-                    <h3>Archive</h3>
-                    <ul class="list-unstyled">
-                        @foreach ($links as  $posts)
+                {{--<div class="archive">--}}
+                    {{--<h3>Archive</h3>--}}
+                    {{--<ul class="list-unstyled">--}}
+                        {{--@foreach ($links as  $posts)--}}
 
-                            <li><a href="javascript:;"><i class="  fa fa-angle-right"></i>{{ $posts->year }}</a></li>
+                            {{--<li><a href="javascript:;"><i class="  fa fa-angle-right"></i>{{ $posts->year }}</a></li>--}}
 
-                        @endforeach
+                        {{--@endforeach--}}
 
-                    </ul>
-                </div>
+                    {{--</ul>--}}
+                {{--</div>--}}
                 <!-- Archive End -->
 
             </div>

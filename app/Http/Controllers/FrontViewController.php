@@ -23,15 +23,15 @@ class FrontViewController extends Controller
         $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
         $blog = Blog::orderBy('id', 'desc')->paginate(5);
 
-         $links = \DB::table('blog')
-            ->select(\DB::raw('YEAR(created_at) year, MONTH(created_at) month, MONTHNAME(created_at) month_name, COUNT(*) post_count'))
-            ->groupBy('year')
-            ->groupBy('month')
-            ->orderBy('year', 'desc')
-            ->orderBy('month', 'desc')
-            ->get();
+//         $links = \DB::table('blog')
+//            ->select(\DB::raw('YEAR(created_at) year, MONTH(created_at) month, MONTHNAME(created_at) month_name, COUNT(*) post_count'))
+//            ->groupBy('year')
+//            ->groupBy('month')
+//            ->orderBy('year', 'desc')
+//            ->orderBy('month', 'desc')
+//            ->get();
 
-        return view('front.blog', compact('blog','recent','tag','links'))->with('title',"Blog");
+        return view('front.blog', compact('blog','recent','tag'))->with('title',"Blog");
     }
 
 
