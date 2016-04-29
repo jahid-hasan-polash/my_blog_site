@@ -4,7 +4,8 @@
     <meta name="description" content="">
     <meta name="author" content="Talha">
     <meta name="keyword" content="Tech Blog">
-    <link rel="shortcut icon" href="front/img/favicon.html">
+
+    {!! Html::favicon('/favicon.ico') !!}
 
     <title>{!! $title !!}</title>
 

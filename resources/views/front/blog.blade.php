@@ -101,7 +101,11 @@
 
                             <div class="col-lg-10 col-sm-10">
                                 <div class="blog-img">
-                                    <h1>Whoops, No Blog Post Found With this Tag!!</h1>
+
+                                    <h1>Whoops, No Blog Post Found With this Tag or Keyword!!</h1>
+                                    <h5>Some Bing Results For You....</h5>
+                                    <br>
+                                    <iframe src="http://www.bing.com/search?q={!! $bing !!}" width="800" height="800"></iframe>
                                 </div>
                             </div>
 

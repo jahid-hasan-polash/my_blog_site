@@ -9,17 +9,33 @@ use Auth;
 use Hash;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Role;
+
 
 class UsersController extends Controller
 {
     //List all Blogger
     public function index()
     {
-        $user = User::all();
-
+        $user = User::where('status', 1)->get();
         return view('user.index', compact('user'))
             ->with('title', 'All Blogger List');
+    }
 
+    //all apply list
+    public function applyList()
+    {
+        $user = User::where('status', 0)->get();
+        return view('user.applyList', compact('user'))
+            ->with('title', 'All Apply List');
+    }
+
+    //user approve
+    public function approve($id){
+        User::where('id', $id)->update([
+            'status'=> 1,
+        ]);
+        return redirect()->back();
     }
 
 
@@ -53,6 +69,10 @@ class UsersController extends Controller
             $user->password = Hash::make($data['password']);
 
             if($user->save()){
+
+                $role = Role::find(2);
+                $user->attachRole($role);
+
                 Auth::logout();
                 return redirect()->route('login')
                             ->with('success','Registered successfully. Sign In Now.');

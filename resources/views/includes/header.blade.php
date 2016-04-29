@@ -4,7 +4,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <link rel="shortcut icon" href="img/favicon_1.ico">
+        {!! Html::favicon('/favicon.ico') !!}
 
         <title>{!! $title !!} - {!! Config::get('customConfig.names.siteName')!!}</title>
 

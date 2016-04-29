@@ -70,7 +70,9 @@ class FrontViewController extends Controller
           $tag= Tag::all();
           $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
           $blog = Blog::where('tag','=',$tag_name)->orderBy('id', 'desc')->paginate(5);
-          return view('front.blog', compact('blog','recent','tag'))->with('title',"Blog");
+          $bing = str_slug($tag_name, "+");;
+          return view('front.blog', compact('blog','recent','tag','bing'))->with('title',"Blog");
+
       }
       catch(Exception $e){
 
@@ -83,6 +85,7 @@ class FrontViewController extends Controller
     /*==================================================*/
     //For Search any blog with blog title or blog details
     /*==================================================*/
+
     public function search(){
 
         $search_value = \Input::get('search_value');
@@ -95,8 +98,9 @@ class FrontViewController extends Controller
                 ->orWhere('title','like','%'.$search_value.'%')
                 ->orderBy('id', 'desc')
                 ->paginate(5);
+            $bing = str_slug($search_value, "+");
 
-            return view('front.blog', compact('blog','recent','tag'))->with('title',"Blog");
+            return view('front.blog', compact('blog','recent','tag','bing'))->with('title',"Blog");
         } catch (Exception $e) {
 
             return "Sorry, Page not Found ";
@@ -115,6 +119,9 @@ class FrontViewController extends Controller
 //
 //        return view('front.blog', compact('blog','recent','tag'))->with('title',"Search Result");
 //    }
+
+
+
 
     /*==================================================*/
     //Blog Archive
@@ -137,5 +144,13 @@ class FrontViewController extends Controller
         }
 
     }
+
+    /*==================================================*/
+    //error
+    /*==================================================*/
+    public function error(){
+        return view('error')->with('title','Unauthorized Page');
+    }
+
 
 }

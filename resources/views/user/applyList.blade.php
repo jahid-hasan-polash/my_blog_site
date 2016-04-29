@@ -30,7 +30,7 @@
                                             <th>id</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Member Since</th>
+                                            <th>Approve</th>
                                             <th>Delete</th>
                                         </tr>
                                         </thead>
@@ -40,10 +40,10 @@
                                                 <td>{!! $users->id !!}</td>
                                                 <td>{!! $users->name !!}</td>
                                                 <td>{!! $users->email !!}</td>
-                                                <td>{!! \Carbon\Carbon::now()->diffForHumans($users->created_at) !!}</td>
+                                                <td><a class="btn btn-info btn-xs btn-archive Editbtn" href="{!!route('user.approve',$users->id)!!}"  style="margin-right: 3px;">Approve</a></td>
                                                 <td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $users->id!!}">Delete</a></td>
                                             </tr>
-                                       @endforeach
+                                        @endforeach
 
                                         </tbody>
                                     </table>
@@ -73,7 +73,7 @@
                     Are you sure to delete?
                 </div>
                 <div class="modal-footer">
-                    {!! Form::open(array('route' => array('user.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
+                    {!! Form::open(array('route' => array('user.destroy', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
                     <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     {!! Form::submit('Yes, Delete', array('class' => 'btn btn-success')) !!}
                     {!! Form::close() !!}
@@ -81,7 +81,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
 @stop
 
@@ -108,7 +108,7 @@
             /* do not add datatable method/function here , its always loaded from footer -- masiur */
             $(document).on("click", ".deleteBtn", function() {
                 var deleteId = $(this).attr('deleteId');
-                var url = "<?php echo URL::route('user.index'); ?>";
+                var url = "<?php echo URL::route('user.applyList'); ?>";
                 $(".deleteForm").attr("action", url+'/'+deleteId);
             });
 
