@@ -18,6 +18,8 @@
                     <li><a href="{!! route('front.about') !!}">About</a></li>
                     <li><a href="{!! route('front.archive') !!}">Archive</a></li>
                     <li><a href="{!! route('front.contact') !!}">Contact</a></li>
+                    <li><a href="{!! route('user.create') !!}">Apply</a></li>
+                    <li><a href="{!! route('login') !!}">Login</a></li>
                 </ul>
             </div>
 

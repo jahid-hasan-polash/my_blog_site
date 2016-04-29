@@ -25,10 +25,10 @@ class BlogRequest extends Request
     {
         return [
             'title'=>'required',
-            'meta_data'=>'required',
+            // 'meta_data'=>'required',
             'tag'=>'required',
             'details'=>'required',
-            'image'=>'required',
+            // 'image'=>'required',
 
         ];
     }

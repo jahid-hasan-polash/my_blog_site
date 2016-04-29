@@ -65,11 +65,14 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
     public function login(){
         // return 'Auth Login Panel';
         return view('auth.login')
                     ->with('title', 'Login');
     }
+
 
     public function doLogin(Request $request)
     {
@@ -99,18 +102,39 @@ class AuthController extends Controller
                         'password' => $allInput['password']
             );
 
-            if (Auth::attempt($credentials))
-            {
-                return redirect()->route('dashboard');
-            } else
-            {
-                return redirect()->route('login')
-                            ->withInput()
-                            ->withErrors('Error in Email Address or Password.');
-            }
+
+/*------------------------status, email and password check----------------------------------------*/
+           $count=User::where('email',$request->email)->count();
+
+           if($count!= 0 && User::where('email',$request->email)->pluck('status')== 1){
+              if (Auth::attempt($credentials))
+              {
+                  return redirect()->route('dashboard');
+              }
+              else{
+                  return redirect()->route('login')
+                      ->withInput()
+                      ->withErrors('Email or password wrong input.');
+              }
+           }
+           elseif($count== 0){
+                   return redirect()->route('login')
+                       ->withInput()
+                       ->withErrors('No record found with this email');
+           }
+
+           else{
+                  return redirect()->route('login')
+                      ->withInput()
+                      ->withErrors('Waiting For Admin Verification.');
+              }
+/*----------------------------------------------------------------*/
+
+
         }
-        return 'Do Login Executes';
+
     }
+
 
     public function logout(){
         Auth::logout();
@@ -118,6 +142,7 @@ class AuthController extends Controller
                     ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }
+
 
     public function dashboard(){
         return view('dashboard')
@@ -136,6 +161,7 @@ class AuthController extends Controller
             'password'              => 'required|confirmed',
             'password_confirmation' => 'required'
         ];
+
         $data = $request->all();
 
         $validation = Validator::make($data,$rules);

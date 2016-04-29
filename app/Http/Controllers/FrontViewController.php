@@ -97,13 +97,24 @@ class FrontViewController extends Controller
                 ->paginate(5);
 
             return view('front.blog', compact('blog','recent','tag'))->with('title',"Blog");
-        }
-        catch(Exception $e){
+        } catch (Exception $e) {
 
             return "Sorry, Page not Found ";
         }
     }
 
+
+
+
+
+//    public function searchResult()
+//    {
+//        $tag= Tag::all();
+//        $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
+//        $blog = Blog::orderBy('id', 'desc')->paginate(5);
+//
+//        return view('front.blog', compact('blog','recent','tag'))->with('title',"Search Result");
+//    }
 
     /*==================================================*/
     //Blog Archive

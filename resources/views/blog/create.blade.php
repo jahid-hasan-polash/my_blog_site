@@ -35,10 +35,10 @@
                                         {!!Form::text('title', '',array('class' => 'form-control','placeholder' => 'Input Title'))!!}
                                     </div>
 
-                                    <div class="form-group">
-                                        {!! Form::label('meta_data', 'Url(unique) :', array('class' => 'col-md-2 control-label')) !!}
-                                        {!!Form::text('meta_data','',array('class' => 'form-control','placeholder' => 'www.xyz.com/meta-data' ))!!}
-                                    </div>
+                                    {{--<div class="form-group">--}}
+                                    {{--{!! Form::label('meta_data', 'Url(unique) :', array('class' => 'col-md-2 control-label')) !!}--}}
+                                    {{--{!!Form::text('meta_data','',array('class' => 'form-control','placeholder' => 'www.xyz.com/meta-data' ))!!}--}}
+                                    {{--</div>--}}
 
                                     <div class="form-group">
                                         {!! Form::label('tag', 'Select Tag :', array('class' => 'col-md-2 control-label')) !!}

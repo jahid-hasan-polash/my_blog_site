@@ -25,7 +25,6 @@ Route::get('/', function () {
 Route::group(['middleware' => 'guest'], function(){
 	Route::controller('password', 'RemindersController');
 	Route::get('admin/login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
-	Route::get('admin/user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('admin/user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('admin/login', array('uses' => 'Auth\AuthController@doLogin'));
 
@@ -41,6 +40,8 @@ Route::group(['middleware' => 'guest'], function(){
 Route::group(array('middleware' => 'auth'), function()
 {
 
+	Route::get('allUser', array('as' => 'user.index', 'uses' => 'UsersController@index'));
+	Route::delete('allUser/{id}', array('as' => 'user.delete', 'uses' => 'UsersController@destroy'));
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
@@ -49,8 +50,27 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
 
+	Route::get('tag', array('as' => 'tag.index', 'uses' => 'TagController@index'));
+	Route::get('tag/create', array('as' => 'tag.create', 'uses' => 'TagController@create'));
+	Route::post('tag', array('as' => 'tag.store', 'uses' => 'TagController@store'));
+	Route::get('tag/{id}/edit', array('as' => 'tag.edit', 'uses' => 'TagController@edit'));
+	Route::put('tag/{id}/update', array('as' => 'tag.update', 'uses' => 'TagController@update'));
+	Route::delete('tag/{id}', array('as' => 'tag.delete', 'uses' => 'TagController@destroy'));
+
+
+	Route::get('blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));
+	Route::get('blog/create', array('as' => 'blog.create', 'uses' => 'BlogController@create'));
+	Route::post('blog', array('as' => 'blog.store', 'uses' => 'BlogController@store'));
+	Route::get('blog/{id}/edit', array('as' => 'blog.edit', 'uses' => 'BlogController@edit'));
+	Route::put('blog/{id}/update', array('as' => 'blog.update', 'uses' => 'BlogController@update'));
+	Route::delete('blog/{id}', array('as' => 'blog.delete', 'uses' => 'BlogController@destroy'));
+
+	Route::get('myBlog', array('as' => 'blog.own', 'uses' => 'BlogController@myBlog'));
+
+
 });
 
+Route::get('apply-for-blogger', ['as' => 'user.create', 'uses' => 'UsersController@create']);
 
 Route::get('blog-all', array('as' => 'front.blog', 'uses' => 'FrontViewController@frontView')); //front view
 Route::get('blog-details/{meta_data}', array('as' => 'front.blog_details', 'uses' => 'FrontViewController@frontBlogDetails')); //front view
@@ -59,38 +79,17 @@ Route::get('about', array('as' => 'front.about', 'uses' => 'FrontViewController@
 Route::get('contact', array('as' => 'front.contact', 'uses' => 'ContactController@contact'));
 Route::post('contact','ContactController@getContactUsForm');
 
-Route::post('search', array('as' => 'search.action', 'uses' => 'FrontViewController@search'));
-
+Route::post('blog-all', array('as' => 'search.action', 'uses' => 'FrontViewController@search'));
+//Route::get('search', array('as' => 'front.blog', 'uses' => 'FrontViewController@searchResult'));
 
 Route::get('archive', array('as' => 'front.archive', 'uses' => 'FrontViewController@archive'));
 
 
-Route::get('blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));
-Route::get('blog/create', array('as' => 'blog.create', 'uses' => 'BlogController@create'));
-Route::post('blog', array('as' => 'blog.store', 'uses' => 'BlogController@store'));
-Route::get('blog/{id}/edit', array('as' => 'blog.edit', 'uses' => 'BlogController@edit'));
-Route::put('blog/{id}/update', array('as' => 'blog.update', 'uses' => 'BlogController@update'));
-Route::delete('blog/{id}', array('as' => 'blog.delete', 'uses' => 'BlogController@destroy'));
 
 Route::get('blog-all/{tag}', array('as' => 'blog.tag', 'uses' => 'FrontViewController@tagAssociateBlog'));
 
 
 
-Route::get('tag', array('as' => 'tag.index', 'uses' => 'TagController@index'));
-Route::get('tag/create', array('as' => 'tag.create', 'uses' => 'TagController@create'));
-Route::post('tag', array('as' => 'tag.store', 'uses' => 'TagController@store'));
-Route::get('tag/{id}/edit', array('as' => 'tag.edit', 'uses' => 'TagController@edit'));
-Route::put('tag/{id}/update', array('as' => 'tag.update', 'uses' => 'TagController@update'));
-Route::delete('tag/{id}', array('as' => 'tag.delete', 'uses' => 'TagController@destroy'));
-
-
-
-Route::get('comment', array('as' => 'comment.index', 'uses' => 'CommentController@index'));
-Route::get('comment/create', array('as' => 'comment.create', 'uses' => 'CommentController@create'));
-Route::post('comment', array('as' => 'comment.store', 'uses' => 'CommentController@store'));
-Route::get('comment/{id}/edit', array('as' => 'comment.edit', 'uses' => 'CommentController@edit'));
-Route::put('comment/{id}/update', array('as' => 'comment.update', 'uses' => 'CommentController@update'));
-Route::delete('comment/{id}', array('as' => 'comment.delete', 'uses' => 'CommentController@destroy'));
 
 
 

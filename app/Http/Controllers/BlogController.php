@@ -28,6 +28,14 @@ class BlogController extends Controller
         return view('blog.index', compact('blog'))->with('title',"All Blog List");
     }
 
+
+    //Blogger own blog
+    public function myBlog()
+    {
+        $blog = Blog::orderBy('id', 'desc')->where('user_id', \Auth::user()->id)->get();
+        return view('blog.own', compact('blog'))->with('title', "Your Blog List");
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -45,6 +53,7 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\BlogRequest $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(BlogRequest $request)
     {
 
@@ -55,8 +64,8 @@ class BlogController extends Controller
         if($request->hasFile('image')){
 
             $image = $request->file('image');
-            $fullImage = '/upload/blog/fullImage/image-'.$request->meta_data.'-'.strtotime(date('Y-m-d H:i:s')).'.'.$image->getClientOriginalExtension();
-            $thumbnail = '/upload/blog/thumbnail/thumbnail-'.$request->meta_data.'-'.strtotime(date('Y-m-d H:i:s')).'.'.$image->getClientOriginalExtension();
+            $fullImage = '/upload/blog/fullImage/image-' . str_slug($request->title, "-") . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
+            $thumbnail = '/upload/blog/thumbnail/thumbnail-' . str_slug($request->title, "-") . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
 
             Image::make($image)->resize(558, 221)->save(public_path($fullImage));
             Image::make($image)->resize(81, 81)->save(public_path($thumbnail));
@@ -66,17 +75,20 @@ class BlogController extends Controller
 
         }else{
 
-            return redirect()->route('blog.index')->with('error','File Not Found');
+            $blog->image = 'upload/default/big.jpg';
+            $blog->img_thumbnail = 'upload/default/small.jpg';
         }
         /**************************Image*******************/
+
+
         $blog->title = $request->title;
         $blog->details = $request->details;
         $blog->tag = $request->tag;
-        $blog->meta_data = $request->meta_data;
+        $blog->meta_data = str_slug($request->title, "-");
         $blog->user_id =  \Auth::user()->id;
         $blog->save();
 
-        return redirect()->route('blog.index')->with('success','Blog Successfully Created');
+        return redirect()->back()->with('success', 'Blog Successfully Created');
     }
     /**
      * Display the specified resource.
@@ -117,11 +129,11 @@ class BlogController extends Controller
         $blog->title = $request->title;
         $blog->details = $request->details;
         $blog->tag = $request->tag;
-        $blog->meta_data = $request->meta_data;
+        // $blog->meta_data = $request->meta_data;
         //$blog->image = $request->image;
         $blog->save();
 
-        return redirect()->route('blog.index')->with('success','Blog Updated Successfully');
+        return redirect()->back()->with('success', 'Blog Updated Successfully');
     }
 
     /**
@@ -136,4 +148,6 @@ class BlogController extends Controller
 
         return redirect()->route('blog.index')->with('success',"Blog Successfully deleted");
     }
+
+
 }
