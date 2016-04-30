@@ -80,8 +80,9 @@
 
 
                     @role('user')
+
                     <li class="{!! Menu::areActiveRoutes(['blog.create','blog.own']) !!}"><a href="#"><i
-                                    class="ion-compose"></i> <span class="nav-label">Blogger</span></a>
+                                    class="ion-compose"></i> <span class="nav-label">Blog</span></a>
                         <ul class="list-unstyled">
 
 

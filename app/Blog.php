@@ -46,4 +46,13 @@ class Blog extends Model
         return  $dt->formatLocalized('%A %d %B %Y');//day date month year
     }
 
+
+   //for count views
+    public static function viewCountIncrease($id){
+        $blog= Blog::where('id','=',$id)->pluck('views');
+        Blog::where('id','=',$id)->update([
+            'views' => $blog+1,
+        ]);
+    }
+
 }

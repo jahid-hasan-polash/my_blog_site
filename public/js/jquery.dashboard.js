@@ -17,7 +17,7 @@
         * Morris charts
         */
 
-         
+
         //Line chart
         Morris.Area({
             element: 'morris-area-example',

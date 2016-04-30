@@ -75,7 +75,7 @@ class UsersController extends Controller
 
                 Auth::logout();
                 return redirect()->route('login')
-                            ->with('success','Registered successfully. Sign In Now.');
+                            ->with('success','Registered successfully.Now you have to wait for admin verification.');
             }else{
                 return redirect()->route('dashboard')
                             ->with('error',"Something went wrong.Please Try again.");

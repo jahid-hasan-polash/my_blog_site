@@ -42,7 +42,12 @@
                                 <span class="comnt-ico">
                                     <i class="fa fa-comments"></i>
                                 </span>
-                            <span class="value">15</span>
+
+                                <span class="value">
+                                    {{--value--}}
+                                </span>
+
+
                             <span class="disqus-comment-count value" data-disqus-identifier="{{$blog->id}}"></span>
                         </div>
                     </div>
@@ -67,13 +72,13 @@
 
 
 
-                        <div class="shate-view">
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:;">{!! $blog->views !!} Views</a></li>
+                        {{--<div class="shate-view">--}}
+                            {{--<ul class="list-unstyled">--}}
+                                {{--<li><a href="javascript:;">{!! $blog->views !!} Views</a></li>--}}
                                 {{--<li><a href="javascript:;">{!! $blog->share !!} Share</a></li>--}}
-                                <li><a href="javascript:;">{!! $blog->like !!} Recommend</a></li>
-                            </ul>
-                        </div>
+                                {{--<li><a href="javascript:;">{!! $blog->like !!} Recommend</a></li>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
 
 
                     </div>

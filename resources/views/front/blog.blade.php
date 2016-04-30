@@ -46,7 +46,9 @@
                                 <span class="comnt-ico">
                                      <i class="fa fa-comments" aria-hidden="true"></i>
                                 </span>
-                            <span class="value">15</span>
+                            <span class="value">
+                               {{--//value--}}
+                            </span>
                         </div>
 
                     </div>
@@ -73,20 +75,20 @@
                         </ul>
 
 
-                        <div class="shate-view">
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:;">{!! $new_blog->views !!} Views</a></li>
+                        {{--<div class="shate-view">--}}
+                            {{--<ul class="list-unstyled">--}}
+                                {{--<li><a href="javascript:;">{!! $new_blog->views !!} Views</a></li>--}}
                                 {{--<li><a href="javascript:;">{!! $new_blog->share !!} Share</a></li>--}}
-                                <li><a href="javascript:;">{!! $new_blog->like !!} Recommend</a></li>
-                            </ul>
-                        </div>
+                                {{--<li><a href="javascript:;">{!! $new_blog->like !!} Recommend</a></li>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
 
                     </div>
 
                     <div class="col-lg-10 col-sm-10">
-                        <h1><a href="{!! route('front.blog_details',$new_blog->meta_data) !!}">{!! $new_blog->title !!}</a></h1>
+                        <h1><a href="{!! route('front.blog_details',$new_blog->meta_data) !!}" name="{!! $new_blog->id !!} " onClick="viewsCount(this.name)">{!! $new_blog->title !!}</a></h1>
                         <p>{!! \Str::limit($new_blog->details,300) !!}</p>
-                        <a href="{!! route('front.blog_details',$new_blog->meta_data) !!}" class="btn btn-danger">Continue Reading</a>
+                        <a href="{!! route('front.blog_details',$new_blog->meta_data) !!} " class="btn btn-danger" onClick="viewsCount()" >Continue Reading</a>
                     </div>
 
                 </div>
@@ -212,4 +214,22 @@
 
 </div>
 <!--container end-->
+@stop
+
+@section('script')
+
+    <script>
+
+
+        function viewsCount(el)
+        {
+            <?php
+
+             // $phpVariableName = $_GET["el"];
+             //\App\Blog::viewCountIncrease($phpVariableName);
+
+            ?>
+         }
+
+    </script>
 @stop

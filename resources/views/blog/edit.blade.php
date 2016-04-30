@@ -43,16 +43,18 @@
 
                                     <div class="form-group">
                                         {!! Form::label('tag', 'Select Tag :', array('class' => 'col-md-2 control-label')) !!}
-                                        {!!Form::select('tag', $tag, $tag_type ,array('class' => 'form-control', 'id' => 'select', 'autofocus'))!!}
-                                    </div>
+                                        {!!Form::select('tag', $tag, $tag_type ,array('class' => 'form-control', 'id' => 'status', 'autofocus'))!!}
+                                    </div><br>
+
+
 
 
                                     <div class="form-group">
                                         {!! Form::label('details', 'Details :', array('class' => 'col-md-2 control-label')) !!}
-                                        {!!Form::textarea('details',null,array('class' => 'form-control','placeholder' => 'Enter details of blog' ))!!}
                                     </div><br>
-
-
+                                    <div class="form-group">
+                                        {!!Form::textarea('details',null,array('class' => 'form-control','placeholder' => 'Enter details of blog','id' => 'editor' ))!!}
+                                    </div><br>
 
 
                                     <div class="form-group">
@@ -82,8 +84,8 @@
 
 @section('style')
 
-    {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css') !!}
-    {!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.css') !!}
+    {!! Html::style('css/chosen_dropdown/chosen.css') !!}
+    {!! Html::style('//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css') !!}
 
 
 
@@ -91,16 +93,25 @@
 
 
 @section('script')
-
-
+    {!! Html::script('js/chosen_dropdown/chosen.jquery.min.js') !!}
+    {!! Html::script('js/ckeditor/ckeditor.js') !!}
 
     <script type="text/javascript">
-        $('select').select2();
+        $(document).ready(function() {
+
+            CKEDITOR.replace( 'editor', {
+                "filebrowserImageUploadUrl": "{!!asset('js/ckeditor/plugins/imgupload.php')!!}"
+            } );
+
+            $("#status").chosen();
+
+        });
+
+
 
     </script>
 
 @stop
-
 
 
 

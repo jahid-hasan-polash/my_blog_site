@@ -132,6 +132,21 @@ Route::get('error', array('as' => 'error', 'uses' => 'FrontViewController@error'
 
 
 
+//
+//use Carbon\Carbon;
+//
+//Route::get('chart',function(){
+//	$visitorTraffic = \App\Blog::where('created_at', '>=', \Carbon\Carbon::now()->subMonth())
+//                            ->groupBy('date')
+//		                    ->orderBy('date', 'DESC')
+//		                   ->get(array(DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "blog"')
+//						   ));
+//
+//	return $visitorTraffic;
+//});
+//
+//
+
 
 
 
