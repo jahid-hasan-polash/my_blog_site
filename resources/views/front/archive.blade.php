@@ -54,7 +54,7 @@
 
                         <div class="col-lg-10 col-sm-10">
                             <div class="blog-img">
-                                <h1>Whoops, No Blog Post Found With this Tag!!</h1>
+                                <h1>Whoops, No Blog Post Found !!</h1>
                             </div>
                         </div>
 

@@ -43,12 +43,14 @@
                                     <i class="fa fa-comments"></i>
                                 </span>
 
-                                <span class="value">
+                                   <span class="value">
                                     {{--value--}}
-                                </span>
+
+                                       <h4 class="count-comments" data-disqus-url="/localhost:8000/blog-details/{!! $blog->meta_data !!}"></h4>
+                                   </span>
 
 
-                            <span class="disqus-comment-count value" data-disqus-identifier="{{$blog->id}}"></span>
+
                         </div>
                     </div>
 
@@ -206,5 +208,45 @@
 @stop
 
 @section('script')
-
+    <script type="text/javascript">
+        /*
+         Get Disqus comment counts given an array of URLs
+         Considerations
+         --------------
+         + In most cases, you should use the default comment counting script
+         + This example will make client-side API calls, which on a busy site, will exhaust your 1000 requests/hour limit quickly.
+         Consider requesting comment counts server-side and caching the results.
+         + Make sure the domain you're hosting this page on has been added to your whitelisted domains in your application: http://disqus.com/api/applications/
+         Cases where you might use this
+         ------------------------------
+         1. When you're counting comments on an element other than a <a> tag
+         2. If you're counting comments from another Disqus shortname on a page where you're using the default comment counting script
+         */
+        $(document).ready(function () {
+            var disqusPublicKey = "658Pi7ZStcAN5fFHkKjpmx1Ac42urEjA4eNvElpEtKgHNL4xKoJs2O57zYnMOtY6";
+            var disqusShortname = "sustcse";
+            var urlArray = [];
+            $('.count-comments').each(function () {
+                var url = $(this).attr('data-disqus-url');
+                urlArray.push('link:' + url);
+            });
+            $('#GetCountsButton').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: "https://disqus.com/api/3.0/threads/set.jsonp",
+                    data: { api_key: disqusPublicKey, forum : disqusShortname, thread : urlArray }, // URL method
+                    cache: false,
+                    dataType: "jsonp",
+                    success: function (result) {
+                        for (var i in result.response) {
+                            var countText = " comments";
+                            var count = result.response[i].posts;
+                            if (count == 1) countText = " comment";
+                            $('h4[data-disqus-url="' + result.response[i].link + '"]').html(count + countText);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @stop

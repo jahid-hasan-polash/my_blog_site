@@ -5,7 +5,7 @@
             <div class="col-lg-3 col-sm-3">
                 <h1>contact info</h1>
                 <address>
-                    <p>Address: CSE,SUST</p>
+                    <p>Address: Flat-C1, Elahi-8B, Akhalia,</p>
                     <p>Sylhet, Bangladesh</p>
                     <p>Phone : (+88) 01967402131</p>
                     <p>Email : <a href="javascript:;">talhaqc@gmail.com</a></p>
