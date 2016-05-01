@@ -5,7 +5,7 @@
         <span class="username">{!! Auth::user()->email !!} </span> <span class="caret"></span>
     </a>
     <ul class="dropdown-menu pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
-        {{--<li><a href="{!!route('profile')!!}"><i class="fa fa-briefcase"></i>Profile</a></li>--}}
+        <li><a href="{!!route('profile')!!}"><i class="fa fa-briefcase"></i>Profile</a></li>
         <li><a href="{!!route('password.change')!!}"><i class="fa fa-cog"></i> Change Password</a></li>
         <li><a href="{!! route('logout') !!}"><i class="fa fa-sign-out"></i> Log Out</a></li>
         <!--

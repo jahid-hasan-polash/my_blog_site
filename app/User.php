@@ -46,4 +46,9 @@ class User extends Model implements AuthenticatableContract,
     public function blogs(){
         return $this->hasMany('Blog','user_id','id');
     }
+
+    //for profile
+    public function profiles(){
+        return $this->hasOne('Profile','user_id','id');
+    }
 }

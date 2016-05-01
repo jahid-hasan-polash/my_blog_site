@@ -48,12 +48,12 @@
                                 <a href="{!!  URL::route( 'blog.index') !!}">All Blog</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveRoute('blog.create') !!}">
-                                <a href="{!!  URL::route('blog.create') !!}">Create Blog</a>
-                            </li>
-
                             <li class="{!! Menu::isActiveRoute('blog.own') !!}">
                                 <a href="{!!  URL::route( 'blog.own') !!}">My Blog</a>
+                            </li>
+
+                            <li class="{!! Menu::isActiveRoute('blog.create') !!}">
+                                <a href="{!!  URL::route('blog.create') !!}">Create Blog</a>
                             </li>
 
                         </ul>

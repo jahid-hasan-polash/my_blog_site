@@ -126,7 +126,7 @@ class AuthController extends Controller
            else{
                   return redirect()->route('login')
                       ->withInput()
-                      ->withErrors('Waiting For Admin Verification.');
+                      ->with('info','Waiting For Admin Verification.');
               }
 /*----------------------------------------------------------------*/
 

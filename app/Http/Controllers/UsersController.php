@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Requests\UserRequest;
+use App\Profile;
 use Illuminate\Http\Request;
 use App\User;
 use Validator;
@@ -17,10 +20,11 @@ class UsersController extends Controller
     //List all Blogger
     public function index()
     {
-        $user = User::where('status', 1)->get();
+        $user = User::where('status', 1)->where('id','!=',1)->get();
         return view('user.index', compact('user'))
             ->with('title', 'All Blogger List');
     }
+
 
     //all apply list
     public function applyList()
@@ -29,6 +33,7 @@ class UsersController extends Controller
         return view('user.applyList', compact('user'))
             ->with('title', 'All Apply List');
     }
+
 
     //user approve
     public function approve($id){
@@ -39,57 +44,73 @@ class UsersController extends Controller
     }
 
 
+
+
+
     //create blogger/ apply for blogger
     public function create()
     {
-        return view('user.create')
+        $platform= [
+            'Php'=>'Php',
+            'Android'=>'Android',
+            'Laravel'=>'Laravel',
+            'Java'=>'Java',
+            'Python'=>'Python',
+            'Ruby on Rails'=>'Ruby on Rails',
+            'C & C++'=>'C & C++',
+            'NodeJs'=>'NodeJs',
+            'Sails'=>'Sails',
+            'Express'=>'Express',
+            'Spring'=>'Spring',
+            'Jquery'=>'Jquery',
+            'JavaScript'=>'JavaScript',
+        ];
+
+        return view('user.create',compact('platform'))
             ->with('title', 'Apply For Blogger');
     }
 
 
     //store blogger data
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $rules =[
-            'name'                  => 'required',
-            'email'                 => 'required|unique:users,email',
-            'password'              => 'required|confirmed',
-            'password_confirmation' => 'required'
-        ];
-        $data = $request->all();
 
-        $validation = Validator::make($data,$rules);
-
-        if($validation->fails()){
-            return redirect()->back()->withErrors($validation)->withInput();
-        }else{
             $user = new User;
-            $user->name = $data['name'];
-            $user->email = $data['email'];
-            $user->password = Hash::make($data['password']);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
 
             if($user->save()){
+                $profile = new Profile();
+                $profile->user_id = $user->id;
+                $profile->platform = $request->platform;
+                $profile->position =$request->position;
+                $profile->organization = $request->organization;
 
-                $role = Role::find(2);
-                $user->attachRole($role);
+                if($profile->save()){
 
-                Auth::logout();
-                return redirect()->route('login')
-                            ->with('success','Registered successfully.Now you have to wait for admin verification.');
+                    $role = Role::find(2);
+                    $user->attachRole($role);
+
+                    Auth::logout();
+                    return redirect()->route('login')
+                        ->with('success','Registered successfully.Now you have to wait for admin verification.');
+                }else{
+                    User::destroy($user->id);
+                    return redirect()->back()
+                        ->with('error','Something went wrong.Please Try again.');;
+                }
             }else{
-                return redirect()->route('dashboard')
+                return redirect()->back()
                             ->with('error',"Something went wrong.Please Try again.");
             }
-        }
     }
 
 
-    //blogger profile
-    public function profile()
-    {
-         return view('auth.profile')
-                    ->with('title', 'Profile')->with('user', Auth::user());
-    }
+
+
+
+
 
 
     public function show($id)

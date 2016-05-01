@@ -87,8 +87,8 @@
 
                     <div class="col-lg-10 col-sm-10">
                         <h1><a href="{!! route('front.blog_details',$new_blog->meta_data) !!}" name="{!! $new_blog->id !!} " onClick="viewsCount(this.name)">{!! $new_blog->title !!}</a></h1>
-                        <p>{!! \Str::limit($new_blog->details,300) !!}</p>
-                        <a href="{!! route('front.blog_details',$new_blog->meta_data) !!} " class="btn btn-danger" onClick="viewsCount()" >Continue Reading</a>
+                        <p>{!! \Str::limit($new_blog->details,300) !!}</p><br>
+                        <a href="{!! route('front.blog_details',$new_blog->meta_data) !!} " class="btn btn-danger" onClick="viewsCount()" >Continue Reading...</a>
                     </div>
 
                 </div>

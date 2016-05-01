@@ -37,38 +37,49 @@
 
                 {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-signin')) !!}
 
-                <div class="form-group ">
-                    <div class="col-xs-12"><br>
-                        {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus')) !!}
-                    </div>
-                </div>
+
+
 
                 <div class="form-group ">
-                    <div class="col-xs-12"><br>
-                        {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
-                    </div>
-                </div>
+                    {!! Form::label('name', 'Complete Name :', array('class' => 'col-md-4 control-label')) !!}<br/>
+                    {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Your complete name...', 'autofocus')) !!}
+                </div><br>
 
                 <div class="form-group ">
-                    <div class="col-xs-12"><br>
-                        {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
-                    </div>
-                </div>
+                    {!! Form::label('email', 'Email :', array('class' => 'col-md-4 control-label')) !!}<br/>
+                    {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address...', 'autofocus')) !!}
+                </div><br>
 
                 <div class="form-group ">
-                    <div class="col-xs-12"><br>
-                        {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password')) !!}
-                    </div>
-                </div>
+                    {!! Form::label('platform', 'Working Platform :', array('class' => 'col-md-4 control-label')) !!}<br/>
+                    {!! Form::select('platform', $platform,'', array('class' => 'form-control', 'placeholder' => 'Your working platform...','id' => 'status')) !!}
+                </div><br>
+
+                <div class="form-group ">
+                    {!! Form::label('position', 'Working Status :', array('class' => 'col-md-4 control-label')) !!}<br/>
+                    {!! Form::text('position', '', array('class' => 'form-control', 'placeholder' => 'Student/job...', 'autofocus')) !!}
+                </div><br>
 
 
+                <div class="form-group ">
+                    {!! Form::label('organization', 'Organization/Institute :', array('class' => 'col-md-4 control-label')) !!}
+                    {!! Form::text('organization', '', array('class' => 'form-control', 'placeholder' => 'Input organization/institute...', 'autofocus')) !!}
+                </div><br>
+
+
+
+                <div class="form-group ">
+                    {!! Form::label('password', 'Password :', array('class' => 'col-md-4 control-label')) !!}<br/>
+                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Input Password...')) !!}
+                </div><br>
+
+                <div class="form-group ">
+                    {!! Form::label('password_confirmation', 'Confirm Password :', array('class' => 'col-md-4 control-label')) !!}<br/>
+                    {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password...')) !!}
+                </div><br>
 
                 <div class="form-group text-right">
-                    <br>
-                    <div class="col-xs-12"><br>
-                        {!! Form::submit('Sign Up', array('class' => 'btn btn-lg btn-login btn-block btn-purple ', 'type'=>'submit')) !!}
-                        <br>
-                    </div>
+                 {!! Form::submit('Sign Up', array('class' => 'btn btn-lg btn-login btn-block btn-purple ', 'type'=>'submit')) !!}
                 </div>
 
 
@@ -107,6 +118,29 @@
     </div>
 
 <!--container end-->
+@stop
+
+@section('style')
+    {!! Html::style('css/chosen_dropdown/chosen.css') !!}
+
+
+@stop
+
+
+@section('script')
+
+    {!! Html::script('js/chosen_dropdown/chosen.jquery.min.js') !!}
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#status").chosen();
+
+        });
+
+
+
+    </script>
 @stop
 
 

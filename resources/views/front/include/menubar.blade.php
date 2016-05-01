@@ -18,8 +18,15 @@
                     {{--<li><a href="{!! route('front.about') !!}">About</a></li>--}}
                     <li><a href="{!! route('front.archive') !!}">Archive</a></li>
                     <li><a href="{!! route('front.contact') !!}">Contact</a></li>
-                    <li><a href="{!! route('user.create') !!}">Apply</a></li>
-                    <li><a href="{!! route('login') !!}">Login</a></li>
+
+                    @if(\Auth::check() == 1)
+
+                        <li><a href="{!! route('dashboard') !!}">Dashboard</a></li>
+                    @else
+                        <li><a href="{!! route('user.create') !!}">Apply</a></li>
+                        <li><a href="{!! route('login') !!}">Login</a></li>
+                    @endif
+
                 </ul>
             </div>
 
