@@ -70,6 +70,18 @@ class ProfileController extends Controller
              $image = $request->file('image');
 
 
+            //deleting previous file
+            $prev_avatar_url = Auth::user()->profiles->img_url;
+            if($prev_avatar_url != 'uploads/profile/default/avatar.jpg'){
+                if (\File::exists($prev_avatar_url)) {
+                    \File::delete($prev_avatar_url);
+                }
+                $prev_icon_url = Auth::user()->profiles->thumb_url;
+                if (\File::exists($prev_icon_url)) {
+                   \ File::delete($prev_icon_url);
+                }
+            }
+
             $avatar_url = 'uploads/profile/avatar/avatar-'.Auth::user()->id.'.jpg';
             $icon_url = 'uploads/profile/icon/icon-'.Auth::user()->id.'.jpg';
 
