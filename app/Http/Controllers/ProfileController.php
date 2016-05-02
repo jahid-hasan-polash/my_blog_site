@@ -62,6 +62,7 @@ class ProfileController extends Controller
 
 
 
+
     public function photoUpload(PhotoRequest $request){
 
 
@@ -82,8 +83,8 @@ class ProfileController extends Controller
                 }
             }
 
-            $avatar_url = 'upload/profile/avatar/avatar-'.Auth::user()->id.'.jpg';
-            $icon_url = 'upload/profile/icon/icon-'.Auth::user()->id.'.jpg';
+            $avatar_url = '/upload/profile/avatar/avatar-'.Auth::user()->id.'.jpg';
+            $icon_url = '/upload/profile/icon/icon-'.Auth::user()->id.'.jpg';
 
             Image::make($image)->resize(200, 200)->save(public_path($avatar_url));
             Image::make($image)->resize(45, 45)->save(public_path($icon_url));
