@@ -15,29 +15,12 @@
                 <div class="box-layout meta bottom">
 
                     <div class="col-sm-6 clearfix">
-                        <span class="img-wrapper pull-left m-r-15"><img src="img/avatar-2.jpg" alt="" style="width:64px" class="br-radius"></span>
+                        <span class="img-wrapper pull-left m-r-15"> {!! Html::image(Auth::user()->profiles->img_url, 'alt', array('alt'=> '', 'class' => 'img-circle','width'=> '100', 'height'=>'100')) !!}</span>
                         <div class="media-body">
                             <h3 class="text-white mb-2 m-t-10 ellipsis">{!! $user->name !!}</h3>
                             <h5 class="text-white"> {!! $user->profiles->platform !!} Developer</h5>
                         </div>
                     </div>
-
-
-
-                    {{--{!!--<div class="col-sm-6">--!!}--}}
-                        {{--{!!--<div class="pull-right">--!!}--}}
-                            {{--{!!--<div class="dropdown">--!!}--}}
-                                {{--{!!--<a data-toggle="dropdown" class="dropdown-toggle btn btn-primary" href="#"> Following <span class="caret"></span></a>--!!}--}}
-                                {{--{!!--<ul class="dropdown-menu dropdown-menu-right" role="menu">--!!}--}}
-                                    {{--{!!--<li><a href="#">Poke</a></li>--!!}--}}
-                                    {{--{!!--<li><a href="#">Private message</a></li>--!!}--}}
-                                    {{--{!!--<li class="divider"></li>--!!}--}}
-                                    {{--{!!--<li><a href="#">Unfollow</a></li>--!!}--}}
-                                {{--{!!--</ul>--!!}--}}
-                            {{--{!!--</div>--!!}--}}
-                        {{--{!!--</div>--!!}--}}
-                    {{--{!!--</div>--!!}--}}
-
 
                 </div>
                 <!--/ meta -->
@@ -62,18 +45,11 @@
                     <div class="tab-content m-0">
                         <div id="aboutme" class="tab-pane active">
                             <div class="profile-desk">
-                                {{--{!!--<h1>{!!$user->name!!}</h1>--!!}--}}
-                                {{--{!!--<span class="designation">{!! $user->profiles->platform !!} Developer</span>--!!}--}}
-                                {{--{!!--<p>--!!}--}}
-                                   {{--{!!--{!! $user->about_me !!}--!!}--}}
-                                {{--{!!--</p>--!!}--}}
 
                                 @include('includes.alert')
 
                                 <h3>About Me: </h3>
                                 <span class="designation">{!!$user->profiles->about_me!!} </span>
-
-
 
                                 {{--Basic Information--}}
                                 <table class="table table-condensed">
@@ -164,13 +140,11 @@
                                              {!!  Form::file('image', array('class' => 'form-control')) !!}
                                         </span>
                                   </span>
-
-
                             </div>
 
                             <br><br>
 
-                            {!!  Form::submit('Upload Avatar', array('class' => 'btn btn-primary')) !!}
+                            {!!  Form::submit('Update Avatar', array('class' => 'btn btn-primary')) !!}
 
                             {!! Form::close() !!}
                         </div>
