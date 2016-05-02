@@ -85,18 +85,13 @@ class ProfileController extends Controller
 
 
 
-            $fullImage = '/upload/blog/fullImage/avatar-' . str_slug($request->title, "-") . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
-            $thumbnail = '/upload/blog/thumbnail/icon-' . str_slug($request->title, "-") . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
+            $fullImage = '/upload/profile/avatar/avatar-'. strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
+            $thumbnail = '/upload/profile/icon/icon-'  . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
 
             Image::make($image)->resize(200, 200)->save(public_path($fullImage));
             Image::make($image)->resize(45, 45)->save(public_path($thumbnail));
 
 
-//            $avatar_url = '/upload/blog/fullImage/avatar-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
-//            $icon_url = '/upload/blog/fullImage/icon-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
-//
-//            Image::make($image)->resize(200, 200)->save(public_path($avatar_url));
-//            Image::make($image)->resize(45, 45)->save(public_path($icon_url));
 
             $profile = Profile::where('user_id',Auth::user()->id)
                         ->update(array(
