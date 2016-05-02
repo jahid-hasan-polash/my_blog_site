@@ -83,8 +83,8 @@ class ProfileController extends Controller
                 }
             }
 
-            $avatar_url = 'upload/profile/default/avatar-'.Auth::user()->id.'.jpg';
-            $icon_url = 'upload/profile/default/icon-'.Auth::user()->id.'.jpg';
+            $avatar_url = '/upload/blog/fullImage/avatar-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
+            $icon_url = '/upload/blog/fullImage/icon-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
 
             Image::make($image)->resize(200, 200)->save(public_path($avatar_url));
             Image::make($image)->resize(45, 45)->save(public_path($icon_url));
