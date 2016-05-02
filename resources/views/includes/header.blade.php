@@ -4,7 +4,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        {!! Html::favicon('/favicon.ico') !!}
+        {!! Html::favicon('favicon.ico') !!}
 
         <title>{!! $title !!} - {!! Config::get('customConfig.names.siteName')!!}</title>
 

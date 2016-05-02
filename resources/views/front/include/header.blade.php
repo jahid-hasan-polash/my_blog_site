@@ -5,7 +5,7 @@
     <meta name="author" content="Talha">
     <meta name="keyword" content="Tech Blog">
 
-    {!! Html::favicon('/favicon.ico') !!}
+    {!! Html::favicon('favicon.ico') !!}
 
     <title>{!! $title !!}</title>
 
