@@ -97,7 +97,7 @@
 
        <!-- End of Blog Item -->
       @else
-
+                @if(!empty($bing))
                     <div class="blog-item">
                         <div class="row">
 
@@ -113,6 +113,22 @@
 
                         </div>
                     </div>
+                    @else
+                        <div class="blog-item">
+                            <div class="row">
+
+                                <div class="col-lg-10 col-sm-10">
+                                    <div class="blog-img">
+
+                                        <h1>Whoops, No Blog Post Found!!</h1>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    @endif
+
 
 
         @endif
