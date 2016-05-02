@@ -83,14 +83,14 @@ class ProfileController extends Controller
                         ));
 
             if($profile){
-                return redirect('auth.profile')->with('success','Avatar updated successfully');
+                return redirect()->back()->with('success','Avatar updated successfully');
             }else{
                 return redirect()->back()->with('error','Something went wrong');
             }
 
         }else{
 
-            return redirect('auth.profile')->with(['error'=>'Image could not be uploaded']);
+            return redirect()->back()->with(['error'=>'Image could not be uploaded']);
         }
     }
 

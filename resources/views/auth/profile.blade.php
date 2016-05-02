@@ -146,8 +146,44 @@
 
 
 
+                {{--photo Upload--}}
 
-                                               <!-- settings -->
+                <div id="photo-upload" class="tab-pane">
+                            <div class="user-profile-content">
+                            {!! Form::open(array('route' => 'photo.store', 'method' => 'put', 'files' => true))  !!}
+
+                            <div class="fileupload-new thumbnail" style="width: 200px; height: 200px;">
+                                {!! Html::image(Auth::user()->profiles->img_url, 'alt', array()) !!}
+                            </div>
+
+
+                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;"></div>
+                            <div>
+                                 <span class="btn btn-white btn-file" style="width: 300px; height: 50px;">
+                                        <span class="fileupload-new">
+                                             {!!  Form::file('image', array('class' => 'form-control')) !!}
+                                        </span>
+                                  </span>
+
+
+                            </div>
+
+                            <br><br>
+
+                            {!!  Form::submit('Upload Avatar', array('class' => 'btn btn-primary')) !!}
+
+                            {!! Form::close() !!}
+                        </div>
+                 </div>
+
+
+
+
+
+
+
+
+                        <!-- settings -->
 
                    <div id="edit-profile" class="tab-pane">
                             <div class="user-profile-content">
@@ -205,39 +241,6 @@
                                 </div>
 
                             </div>
-                        </div>
-
-
-
-                        {{--photo Upload--}}
-
-
-
-                        <div id="photo-upload" class="tab-pane">
-                            {!! Form::open(array('route' => 'photo.store', 'method' => 'put', 'files' => true))  !!}
-
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 200px;">
-                                       {!! Html::image(Auth::user()->profiles->img_url, 'alt', array()) !!}
-                                </div>
-
-
-                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;"></div>
-                                       <div>
-                                             <span class="btn btn-white btn-file" style="width: 300px; height: 50px;">
-                                                   <span class="fileupload-new">
-                                                           {!!  Form::file('image', array('class' => 'form-control')) !!}
-                                                   </span>
-                                             </span>
-
-
-                                       </div>
-
-
-                                    <br><br>
-
-                                 {!!  Form::submit('Upload Avatar', array('class' => 'btn btn-primary')) !!}
-
-                            {!! Form::close() !!}
                         </div>
 
 
