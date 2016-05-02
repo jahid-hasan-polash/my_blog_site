@@ -70,20 +70,20 @@ class ProfileController extends Controller
              $image = $request->file('image');
 
 
-            //deleting previous file
-            $prev_avatar_url = Auth::user()->profiles->img_url;
-            if($prev_avatar_url != 'uploads/profile/default/avatar.jpg'){
-                if (\File::exists($prev_avatar_url)) {
-                    \File::delete($prev_avatar_url);
-                }
-                $prev_icon_url = Auth::user()->profiles->thumb_url;
-                if (\File::exists($prev_icon_url)) {
-                   \ File::delete($prev_icon_url);
-                }
-            }
+//            //deleting previous file
+//            $prev_avatar_url = Auth::user()->profiles->img_url;
+//            if($prev_avatar_url != 'uploads/profile/default/avatar.jpg'){
+//                if (\File::exists($prev_avatar_url)) {
+//                    \File::delete($prev_avatar_url);
+//                }
+//                $prev_icon_url = Auth::user()->profiles->thumb_url;
+//                if (\File::exists($prev_icon_url)) {
+//                    \File::delete($prev_icon_url);
+//                }
+//            }
 
-            $avatar_url = 'uploads/profile/avatar/avatar-'.Auth::user()->id.'.jpg';
-            $icon_url = 'uploads/profile/icon/icon-'.Auth::user()->id.'.jpg';
+            $avatar_url = 'uploads/profile/avatar/avatar-'.strtotime(date('Y-m-d H:i:s')). '.' . $image->getClientOriginalExtension();
+            $icon_url = 'uploads/profile/icon/icon-'.strtotime(date('Y-m-d H:i:s')). '.' . $image->getClientOriginalExtension();
 
             Image::make($image)->resize(200, 200)->save(public_path($avatar_url));
             Image::make($image)->resize(45, 45)->save(public_path($icon_url));
