@@ -71,28 +71,37 @@ class ProfileController extends Controller
              $image = $request->file('image');
 
 
-            //deleting previous file
-            $prev_avatar_url = Auth::user()->profiles->img_url;
-            if($prev_avatar_url != 'upload/profile/default/avatar.jpg'){
-                if (\File::exists($prev_avatar_url)) {
-                    \File::delete($prev_avatar_url);
-                }
-                $prev_icon_url = Auth::user()->profiles->thumb_url;
-                if (\File::exists($prev_icon_url)) {
-                    \File::delete($prev_icon_url);
-                }
-            }
+//            //deleting previous file
+//            $prev_avatar_url = Auth::user()->profiles->img_url;
+//            if($prev_avatar_url != 'upload/profile/default/avatar.jpg'){
+//                if (\File::exists($prev_avatar_url)) {
+//                    \File::delete($prev_avatar_url);
+//                }
+//                $prev_icon_url = Auth::user()->profiles->thumb_url;
+//                if (\File::exists($prev_icon_url)) {
+//                    \File::delete($prev_icon_url);
+//                }
+//            }
 
-            $avatar_url = '/upload/blog/fullImage/avatar-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
-            $icon_url = '/upload/blog/fullImage/icon-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
 
-            Image::make($image)->resize(200, 200)->save(public_path($avatar_url));
-            Image::make($image)->resize(45, 45)->save(public_path($icon_url));
+
+            $fullImage = '/upload/blog/fullImage/avatar-' . str_slug($request->title, "-") . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
+            $thumbnail = '/upload/blog/thumbnail/icon-' . str_slug($request->title, "-") . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
+
+            Image::make($image)->resize(200, 200)->save(public_path($fullImage));
+            Image::make($image)->resize(45, 45)->save(public_path($thumbnail));
+
+
+//            $avatar_url = '/upload/blog/fullImage/avatar-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
+//            $icon_url = '/upload/blog/fullImage/icon-'.Auth::user()->id . '.' . $image->getClientOriginalExtension();
+//
+//            Image::make($image)->resize(200, 200)->save(public_path($avatar_url));
+//            Image::make($image)->resize(45, 45)->save(public_path($icon_url));
 
             $profile = Profile::where('user_id',Auth::user()->id)
                         ->update(array(
-                            'img_url' => $avatar_url,
-                            'thumb_url' => $icon_url
+                            'img_url' => $fullImage,
+                            'thumb_url' => $thumbnail
                         ));
 
             if($profile){
