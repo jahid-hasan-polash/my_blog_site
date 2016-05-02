@@ -4,7 +4,12 @@
         <!-- Page Content Start -->
 <!-- ================== -->
 
+
 <div class="wraper container-fluid">
+
+
+
+
     <div class="page-title">
         <h3 class="title">Welcome !</h3>
     </div>
@@ -53,7 +58,7 @@
 
 @role('user')
 
-    <div class="col-lg-3 col-sm-6">
+    <div class="col-lg-6 col-sm-9">
         <div class="widget-panel widget-style-2 white-bg">
             <i class="ion-ios7-pricetag text-info"></i>
             <h2 class="m-0 counter">{!! \App\Blog::where('user_id', Auth::user()->id)->count() !!}</h2>
@@ -61,7 +66,7 @@
         </div>
     </div>
 
-    <div class="col-lg-3 col-sm-6">
+    <div class="col-lg-6 col-sm-9">
         <div class="widget-panel widget-style-2 white-bg">
             <i class="ion-android-contacts text-success"></i>
             <h2 class="m-0 counter">{!! \App\Blog::where('user_id',\Auth::user()->id)->sum('views') !!}</h2>
@@ -69,21 +74,26 @@
         </div>
     </div>
 
+
+
 @endrole
-
-
-
-
 
 
 
     </div> <!-- end row -->
 
+    <div class="alert alert-danger">
+        <center>
+            This Blog site is now in <b>Beta version</b>. Mistakes will be resolve soon. <br/>
+            Thank You :)
+        </center>
+    </div>
+
 </div>
 <!-- Page Content Ends -->
 <!-- ================== -->
 
-
+@stop
 
 @section('script')
         <!-- js placed at the end of the document so the pages load faster -->
@@ -126,4 +136,3 @@
 
 @stop
 
-@stop

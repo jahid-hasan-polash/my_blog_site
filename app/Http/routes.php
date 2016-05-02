@@ -57,8 +57,9 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::get('myBlog', array('as' => 'blog.own', 'uses' => 'BlogController@myBlog'));
 
-
 	Route::put('profile/update', array('as' => 'profile.update', 'uses' => 'ProfileController@update'));
+	Route::put('photo', array('as' => 'photo.store', 'uses' => 'ProfileController@photoUpload'));
+
 
 });
 

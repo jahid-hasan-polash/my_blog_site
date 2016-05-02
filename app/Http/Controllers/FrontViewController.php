@@ -31,7 +31,7 @@ class FrontViewController extends Controller
 //            ->orderBy('month', 'desc')
 //            ->get();
 
-        return view('front.blog', compact('blog','recent','tag'))->with('title',"Blog");
+        return view('front.blog', compact('blog','recent','tag'))->with('title',"Tech Blog :||: Sust CSE'12 ");
     }
 
 
@@ -44,7 +44,7 @@ class FrontViewController extends Controller
             $tag= Tag::all();
             $blog = Blog::where('meta_data','=',$meta_data)->first();
             $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
-            return view('front.blog_details', compact('blog','recent','tag'))->with('title',"Blog Details");
+            return view('front.blog_details', compact('blog','recent','tag'))->with('title',"Details :||:  $meta_data" );
         }catch(Exception $e){
             return "Sorry, Page not Found ";
         }
@@ -56,7 +56,7 @@ class FrontViewController extends Controller
     //View About page
     /*==================================================*/
     public function about(){
-        return view('front.about')->with('title',"About");
+        return view('front.about')->with('title',"Tech Blog :||: About");
     }
 
 
@@ -71,7 +71,7 @@ class FrontViewController extends Controller
           $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
           $blog = Blog::where('tag','=',$tag_name)->orderBy('id', 'desc')->paginate(5);
           $bing = str_slug($tag_name, "+");;
-          return view('front.blog', compact('blog','recent','tag','bing'))->with('title',"Blog");
+          return view('front.blog', compact('blog','recent','tag','bing'))->with('title',"Tag :||: $tag_name" );
 
       }
       catch(Exception $e){
@@ -100,7 +100,7 @@ class FrontViewController extends Controller
                 ->paginate(5);
             $bing = str_slug($search_value, "+");
 
-            return view('front.blog', compact('blog','recent','tag','bing'))->with('title',"Blog");
+            return view('front.blog', compact('blog','recent','tag','bing'))->with('title',"Search :||: $search_value");
         } catch (Exception $e) {
 
             return "Sorry, Page not Found ";
@@ -138,7 +138,7 @@ class FrontViewController extends Controller
 
             $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
 
-            return view('front.archive', compact('blog','recent','tag'))->with('title',"Blog Details");
+            return view('front.archive', compact('blog','recent','tag'))->with('title',"Archive :||: Tech Blog");
         }catch(Exception $e){
             return "Sorry, Page not Found ";
         }
@@ -149,7 +149,7 @@ class FrontViewController extends Controller
     //error
     /*==================================================*/
     public function error(){
-        return view('error')->with('title','Unauthorized Page');
+        return view('error')->with('title','Tech :||: Unauthorized Page');
     }
 
 

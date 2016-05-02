@@ -11,13 +11,13 @@ class Blog extends Model
 
     //user table relation
     public function user(){
-        return $this->belongsTo('User','user_id','id');
+        return $this->belongsTo('App\User','user_id','id');
     }
 
 
    //blog belong to many tag
     public function tags() {
-        return $this->belongsToMany('Tag');
+        return $this->belongsToMany('App\Tag');
     }
 
 

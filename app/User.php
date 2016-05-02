@@ -44,11 +44,11 @@ class User extends Model implements AuthenticatableContract,
 
     //for blog
     public function blogs(){
-        return $this->hasMany('Blog','user_id','id');
+        return $this->hasMany('App\Blog','user_id','id');
     }
 
     //for profile
     public function profiles(){
-        return $this->hasOne('Profile','user_id','id');
+        return $this->hasOne('App\Profile','user_id','id');
     }
 }

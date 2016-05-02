@@ -2,6 +2,8 @@
 <header class="header-frontend">
     <div class="navbar navbar-default navbar-static-top">
         <div class="container">
+
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="fa fa-bar"></span>
@@ -9,6 +11,7 @@
                     <span class="fa fa-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{!! route('front.blog') !!}">Tech <span> Blog</span></a>
+                {!!   Html::image('http://www.prohad.com/images/beta.png', 'a picture', array('class' => 'thumb','width' => 90 , 'height' => 90))!!}
             </div>
 
 

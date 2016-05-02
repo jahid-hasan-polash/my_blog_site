@@ -87,8 +87,6 @@
     {!! Html::style('css/chosen_dropdown/chosen.css') !!}
     {!! Html::style('//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css') !!}
 
-
-
 @stop
 
 

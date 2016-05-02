@@ -10,6 +10,6 @@ class Tag extends Model
 
     //tag belongs to many blog
     public function blogs() {
-        return $this->belongsToMany('Blog');
+        return $this->belongsToMany('App\Blog');
     }
 }

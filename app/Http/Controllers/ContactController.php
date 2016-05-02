@@ -16,7 +16,7 @@ class ContactController extends Controller
 
     public function contact()
     {
-        return view('front.contact')->with('title',"Contact");
+        return view('front.contact')->with('title',"Contact :||: Tech Blog");
     }
 
 
@@ -56,7 +56,7 @@ class ContactController extends Controller
             return view('front.contact')->with('title','Contact')->with('success','Your message has been sent');
         }else{
             //return contact form with errors
-            return \Redirect::to('contact')->withErrors($validator)->with('title','Contact Us')->with('error','Something Went Wrong, Please Try Again');
+            return \Redirect::to('contact')->withErrors($validator)->with('title','Contact :||: Tech Blog')->with('error','Something Went Wrong, Please Try Again');
         }
     }
 

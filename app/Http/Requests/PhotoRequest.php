@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ProfileRequest extends Request
+class PhotoRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class ProfileRequest extends Request
     public function rules()
     {
         return [
-            'platform'=> 'required',
-            'position'=> 'required',
-            'organization'=> 'required',
+            'image' => 'required|image|max:5000'
         ];
     }
 }

@@ -35,6 +35,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-sm-2">
                         <div class="date-wrap">
+
                             <span class="date">{!! \App\Blog::customDay($blog->id)!!}</span>
                             <span class="month">{!! \App\Blog::customMonth($blog->id)!!}</span>
                         </div>
