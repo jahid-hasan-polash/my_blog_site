@@ -88,8 +88,8 @@ class ProfileController extends Controller
             $fullImage = 'upload/profile/avatar/avatar-'.Auth::user()->id.strtotime(date('Y-m-d')) . '.' . $image->getClientOriginalExtension();
             $thumbnail = 'upload/profile/icon/icon-'.Auth::user()->id . strtotime(date('Y-m-d')) . '.' . $image->getClientOriginalExtension();
 
-            Image::make($image)->resize(200, 200)->save($fullImage);
-            Image::make($image)->resize(45, 45)->save($thumbnail);
+            Image::make($image)->resize(200, 200)->save(public_path($fullImage));
+            Image::make($image)->resize(45, 45)->save(public_path($thumbnail));
 
 
 
