@@ -85,8 +85,8 @@ class ProfileController extends Controller
 
 
 
-            $fullImage = '/upload/profile/avatar/avatar-'. strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
-            $thumbnail = '/upload/profile/icon/icon-'  . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
+            $fullImage = 'upload/profile/avatar/avatar-'. strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
+            $thumbnail = 'upload/profile/icon/icon-'  . strtotime(date('Y-m-d H:i:s')) . '.' . $image->getClientOriginalExtension();
 
             Image::make($image)->resize(200, 200)->save(public_path($fullImage));
             Image::make($image)->resize(45, 45)->save(public_path($thumbnail));
