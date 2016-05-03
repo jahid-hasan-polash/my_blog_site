@@ -31,8 +31,8 @@
                                     {!!Form::model($blog,['route' => ['blog.update',$blog->id], 'method' => 'put' ])!!}
 
                                     <div class="form-group">
-                                        {!! Form::label('title', 'Title :', array('class' => 'col-md-2 control-label')) !!}
-                                        {!!Form::text('title', null,array('class' => 'form-control','placeholder' => 'Input Title'))!!}
+                                        {!! Form::label('title', 'Title - (If use bengali title, then must use its english please) :', array('class' => 'control-label')) !!}
+                                        {!!Form::text('title', null,array('class' => 'form-control','placeholder' => ' কিভাবে ব্লগ তৈরি করতে হয়!) How to create a blog.'))!!}
                                     </div>
 
                                     {{--<div class="form-group">--}}

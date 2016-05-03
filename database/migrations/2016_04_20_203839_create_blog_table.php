@@ -17,6 +17,7 @@ class CreateBlogTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->string('title');
             $table->text('details');
+            $table->boolean('status')->default(0);
             $table->integer('views')->default(0);
             $table->integer('share')->default(0);
             $table->integer('like')->default(0);

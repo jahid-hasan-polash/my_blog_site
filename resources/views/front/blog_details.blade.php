@@ -57,7 +57,7 @@
 
                     <div class="col-lg-10 col-sm-10">
                         <div class="blog-img">
-                            <img src="{!! $blog->image !!}" alt=""/>
+                            <img src="/{!! $blog->image !!}" alt=""/>
                         </div>
                     </div>
 
