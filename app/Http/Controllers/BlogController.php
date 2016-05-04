@@ -129,7 +129,7 @@ class BlogController extends Controller
         $blog->title = $request->title;
         $blog->details = $request->details;
         $blog->tag = $request->tag;
-        // $blog->meta_data = $request->meta_data;
+        $blog->meta_data = str_slug($request->title, "-");
         //$blog->image = $request->image;
         $blog->save();
 

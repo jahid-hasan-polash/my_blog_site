@@ -67,7 +67,7 @@
                     <div class="col-lg-2 col-sm-2 text-right">
 
                         <div class="author">
-                            By <a href="#">{!! App\User::findOrfail($new_blog->user_id)->pluck('name') !!}</a>
+                            By <a href="#">{!! App\User::where('id',$new_blog->user_id)->pluck('name') !!}</a>
                         </div>
 
                         <ul class="list-unstyled">

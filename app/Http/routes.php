@@ -131,11 +131,6 @@ Route::get('error', array('as' => 'error', 'uses' => 'FrontViewController@error'
 
 
 
-
-
-
-
-
 //
 //use Carbon\Carbon;
 //

@@ -23,7 +23,7 @@
         <div class="col-lg-3 col-sm-6">
             <div class="widget-panel widget-style-2 white-bg">
                 <i class="ion-android-contacts text-pink"></i>
-                <h2 class="m-0 counter">{!! \App\User::count() !!}</h2>
+                <h2 class="m-0 counter">{!! \App\User::where('status',1)->where('id','!=',1)->count() !!}</h2>
                 <div>Total Bloggers</div>
             </div>
         </div>

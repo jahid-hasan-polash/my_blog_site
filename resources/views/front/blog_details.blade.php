@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-sm-2 text-right">
                         <div class="author">
-                            By <a href="#">{!! App\User::findOrfail($blog->user_id)->pluck('name') !!}</a>
+                            By <a href="#">{!! App\User::where('id',$blog->user_id)->pluck('name') !!}</a>
                         </div>
 
 
@@ -184,16 +184,16 @@
 
 
                 <!-- Archive -->
-                <div class="archive">
-                    <h3>Archive</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> May 2016</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> April 2016</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> March 2016</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> February 2016</a></li>
-                        <li><a href="javascript:;"><i class="  fa fa-angle-right"></i> January 2016</a></li>
-                    </ul>
-                </div>
+                {{--<div class="archive">--}}
+                    {{--<h3>Archive</h3>--}}
+                    {{--<ul class="list-unstyled">--}}
+                        {{--<li><a href="javascript:;"><i class="  fa fa-angle-right"></i> May 2016</a></li>--}}
+                        {{--<li><a href="javascript:;"><i class="  fa fa-angle-right"></i> April 2016</a></li>--}}
+                        {{--<li><a href="javascript:;"><i class="  fa fa-angle-right"></i> March 2016</a></li>--}}
+                        {{--<li><a href="javascript:;"><i class="  fa fa-angle-right"></i> February 2016</a></li>--}}
+                        {{--<li><a href="javascript:;"><i class="  fa fa-angle-right"></i> January 2016</a></li>--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
                 <!-- Archive End -->
 
             </div>
