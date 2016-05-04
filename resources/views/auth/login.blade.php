@@ -15,7 +15,10 @@
             <h3 class="text-center m-t-10"> Sign In to <strong>Tech Blog</strong></h3>
         </div>
         <br>
+
              @include('includes.alert')
+
+
 
             {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => 'form-horizontal m-t-40')) !!}
             <div class="form-group ">
@@ -49,6 +52,9 @@
             </div>
 
         </div>
+
+        {{--for csrf token--}}
+
 
         <div class="form-group text-right">
             <br>
@@ -103,8 +109,9 @@
                 <p>Enter your e-mail address below to reset your password.</p>
 
 
-                {!! Form::open(array('action' => 'RemindersController@postRemind', 'method' => 'post')) !!}
+                {!! Form::open(array('action' => 'RemindersController@postEmail', 'method' => 'post')) !!}
 
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 {!! Form::email('email', '', array('class' => 'form-control placeholder-no-fix', 'placeholder' => 'Email Address', 'autocomplete'=>'off')) !!}
 
             </div>

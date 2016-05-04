@@ -31,10 +31,17 @@ class AuthController extends Controller
      *
      * @return void
      */
+
+
+
     public function __construct()
     {
         // $this->middleware('guest', ['except' => 'getLogout']);
     }
+
+
+
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -50,6 +57,10 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
     }
+
+
+
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -67,11 +78,19 @@ class AuthController extends Controller
     }
 
 
+
+
+
+
     public function login(){
         // return 'Auth Login Panel';
         return view('auth.login')
                     ->with('title', 'Login');
     }
+
+
+
+
 
 
     public function doLogin(Request $request)
@@ -136,6 +155,11 @@ class AuthController extends Controller
     }
 
 
+
+
+
+
+
     public function logout(){
         Auth::logout();
         return redirect()->route('login')
@@ -144,17 +168,30 @@ class AuthController extends Controller
     }
 
 
+
+
+
+
     public function dashboard(){
         return view('dashboard')
                     ->with('title','Dashboard')->with('user', Auth::user());
         // return 'Dashboard';
     }
 
+
+
+
+
+
     public function changePassword(){
         return view('auth.changePassword')
                     ->with('title',"Change Password")->with('user', Auth::user());
         // return 'Change Password';
     }
+
+
+
+
 
     public function doChangePassword(Request $request){
         $rules =[
@@ -184,4 +221,12 @@ class AuthController extends Controller
          // return 'Do Change Password';
 
     }
+
+
+
+
+
+
+
+
 }

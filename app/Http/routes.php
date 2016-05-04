@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => 'guest'], function(){
+
+
 	Route::controller('password', 'RemindersController');
 	Route::get('blogger/login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
 	Route::post('blogger/login', array('uses' => 'Auth\AuthController@doLogin'));
@@ -35,6 +37,7 @@ Route::group(['middleware' => 'guest'], function(){
 
 	Route::get('apply-for-blogger', ['as' => 'user.create', 'uses' => 'UsersController@create']);
 	Route::post('admin/user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
+
 });
 
 
