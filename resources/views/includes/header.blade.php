@@ -6,7 +6,7 @@
 
         {!! Html::favicon('favicon.ico') !!}
 
-        <title>{!! $title !!} - {!! Config::get('customConfig.names.siteName')!!}</title>
+        <title>{!! $title  or "Tech Blog" !!} - {!! Config::get('customConfig.names.siteName')!!}</title>
 
 
 

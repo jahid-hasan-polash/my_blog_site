@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE Html>
+<Html lang="en">
 
 
 
@@ -53,7 +53,7 @@
 
         </div>
 
-        {{--for csrf token--}}
+        {{--{!!--for csrf token--!!}--}}
 
 
         <div class="form-group text-right">
@@ -64,15 +64,15 @@
         </div>
 
 
-        {{--<center>--}}
-        {{--<p>or you can sign in via social network</p>--}}
+        {{--{!!--<center>--!!}--}}
+        {{--{!!--<p>or you can sign in via social network</p>--!!}--}}
 
-        {{--<div class="login-social-link">--}}
-        {{--<a href="{{ route('login/fb') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>--}}
-        {{--<!-- <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>Twitter</a> -->--}}
-        {{--<a href="{{ route('login/gp') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>--}}
-        {{--</div>--}}
-        {{--</center>--}}
+        {{--{!!--<div class="login-social-link">--!!}--}}
+        {{--{!!--<a href="{!! route('login/fb') !!}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>--!!}--}}
+        {{--{!!--<!-- <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>Twitter</a> -->--!!}--}}
+        {{--{!!--<a href="{!! route('login/gp') !!}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>--!!}--}}
+        {{--{!!--</div>--!!}--}}
+        {{--{!!--</center>--!!}--}}
 
 
 
@@ -80,7 +80,7 @@
             <center>
             <br>
                 Don't have an blogger account yet? <br/>
-            <a class="" href="{{ route('user.create') }}">
+            <a class="" href="{!! route('user.create') !!}">
                 Apply For Account.
             </a>
             </center>
@@ -111,7 +111,7 @@
 
                 {!! Form::open(array('action' => 'RemindersController@postEmail', 'method' => 'post')) !!}
 
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                 {!! Form::email('email', '', array('class' => 'form-control placeholder-no-fix', 'placeholder' => 'Email Address', 'autocomplete'=>'off')) !!}
 
             </div>
@@ -132,13 +132,13 @@
 
 </body>
 <!-- js placed at the end of the document so the pages load faster -->
-{!! HTML::script('js/jquery.js') !!}
-{!! HTML::script('js/bootstrap.min.js') !!}
-{!! HTML::script('js/pace.min.js') !!}
-{!! HTML::script('js/wow.min.js') !!}
-{!! HTML::script('js/jquery.nicescroll.js') !!}
+{!! Html::script('js/jquery.js') !!}
+{!! Html::script('js/bootstrap.min.js') !!}
+{!! Html::script('js/pace.min.js') !!}
+{!! Html::script('js/wow.min.js') !!}
+{!! Html::script('js/jquery.nicescroll.js') !!}
 
         <!--common script for all pages-->
-{!! HTML::script('js/jquery.app.js') !!}
+{!! Html::script('js/jquery.app.js') !!}
 
-</html>
+</Html>

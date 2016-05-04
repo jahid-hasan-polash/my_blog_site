@@ -91,7 +91,7 @@ class RemindersController extends Controller
 
         switch ($response) {
             case Password::PASSWORD_RESET:
-                return \Redirect::view('login')->with('status', trans($response));
+                return redirect()->route('login')->with('status', trans($response));
 
             default:
                 return redirect()->back()
