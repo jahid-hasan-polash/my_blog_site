@@ -89,6 +89,13 @@ Route::group(array('middleware' => 'auth'), function() {
 		//all blog
 		Route::get('blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));
 
+		//support/ help
+		Route::get('help',function(){
+			return View::make('Help')->with('title','Account And ID');
+		});
+
+
+
 
 	});
 
@@ -113,6 +120,7 @@ Route::get('blog-all/{tag}', array('as' => 'blog.tag', 'uses' => 'FrontViewContr
 
 //eror show
 Route::get('error', array('as' => 'error', 'uses' => 'FrontViewController@error'));
+
 
 
 

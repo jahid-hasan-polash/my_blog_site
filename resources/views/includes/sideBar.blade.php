@@ -76,6 +76,31 @@
                         </ul>
                     </li>
                     {{--user  end--}}
+
+
+
+
+                    <li class="{!! Menu::areActiveURLs(['https://dashboard.zopim.com/?first_login#visitor_list/state','https://sustcse.disqus.com/admin/moderate/','help']) !!}"><a href="#"><i
+                                    class="ion-ios7-people"></i> <span class="nav-label">Support</span></a>
+                        <ul class="list-unstyled">
+
+
+                            <li class="{!! Menu::isActiveURL('https://dashboard.zopim.com/?first_login#visitor_list/state') !!}">
+                                <a href="{!!  URL::to('https://dashboard.zopim.com/?first_login#visitor_list/state') !!}" target="_blank">Chat Support</a>
+                            </li>
+
+                            <li class="{!! Menu::isActiveURL('https://sustcse.disqus.com/admin/moderate') !!}" >
+                                <a href="{!!  URL::to('https://sustcse.disqus.com/admin/moderate') !!}" target="_blank">Comment Moderate</a>
+                            </li>
+
+                            <li class="{!! Menu::isActiveURL('help') !!}" >
+                                <a href="{!!  URL::to('help') !!}" >Account Information</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
                     @endrole
 
 
