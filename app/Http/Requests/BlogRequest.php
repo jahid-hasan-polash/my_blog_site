@@ -28,7 +28,7 @@ class BlogRequest extends Request
             // 'meta_data'=>'required',
             'tag'=>'required',
             'details'=>'required',
-            'image'=>'required',
+            //'image'=>'required',
 
         ];
     }

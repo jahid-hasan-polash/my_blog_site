@@ -56,7 +56,7 @@
 
                     <div class="col-lg-10 col-sm-10">
                         <div class="blog-img">
-                            <img src="{!! $new_blog->image !!}" alt=""/>
+                            <img src="{!! asset($new_blog->image) !!}" alt=""/>
                         </div>
                     </div>
 
@@ -191,7 +191,7 @@
                     @foreach($recent as $new)
                     <div class="media">
                         <a class="pull-left" href="javascript:;">
-                            <img class=" " src="{!! $new->img_thumbnail !!}" alt="">
+                            <img class=" " src="{!! asset($new->img_thumbnail) !!}" alt="">
                         </a>
                         <div class="media-body">
                             <h5 class="media-heading"><a href="{!! route('front.blog_details',$new->meta_data) !!}">{!! \App\Blog::fullDate($new->id) !!} </a></h5>
