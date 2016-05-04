@@ -126,8 +126,18 @@ Route::get('error', array('as' => 'error', 'uses' => 'FrontViewController@error'
 
 
 
+Route::get('test',function(){
+
+	$a= '??? ?????(???), ??" . smhgkj ???? wehga4ewa';
 
 
+	return $string = preg_replace( '/[«»""!?,.!@£$%^&*{};:()]+/', '', $a );
+	$string = strtolower($string);
+	$slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
+
+
+
+});
 
 
 

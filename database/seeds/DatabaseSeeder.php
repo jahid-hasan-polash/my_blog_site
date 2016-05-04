@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProfileTableSeeder::class);
         $this->call(EntrustTableSeeder::class);
         $this->call(TagTableSeeder::class);
-        $this->call(BlogTableSeeder::class);
+       // $this->call(BlogTableSeeder::class);
 
         if (env('DB_CONNECTION') == 'mysql') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
