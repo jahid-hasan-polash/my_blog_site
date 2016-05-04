@@ -1,7 +1,8 @@
 <!-- user login dropdown start-->
 <li class="dropdown text-center">
     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-        {{--<img alt="" src="img/avatar-2.jpg" class="img-circle profile-img thumb-sm">--}}
+        <img alt="" src="{!! Auth::user()->profiles->thumb_url !!}" class="img-circle profile-img thumb-sm">
+
         <span class="username">{!! Auth::user()->email !!} </span> <span class="caret"></span>
     </a>
     <ul class="dropdown-menu pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
