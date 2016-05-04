@@ -34,7 +34,7 @@ class RemindersController extends Controller
 
         switch ($response) {
             case Password::RESET_LINK_SENT:
-                return redirect()->back()->with('status', trans($response));
+                return redirect()->back()->with('status', trans($response))->with('success','Password reset link sent to your email, Please check it..');
 
             case Password::INVALID_USER:
                 return redirect()->back()->withErrors(['email' => trans($response)]);
@@ -109,10 +109,16 @@ class RemindersController extends Controller
      */
     protected function resetPassword($user, $password)
     {
-        $user->password = bcrypt($password);
+        try{
+            $user->password = bcrypt($password);
 
-        $user->save();
+            $user->save();
 
-        Auth::login($user);
+            Auth::login($user);
+        }
+        catch(Exception $e){
+            redirect()->route('login')->with('error', 'Something went wrong, Please try again');
+        }
+
     }
 }

@@ -14,11 +14,7 @@
 Route::get('/', function () {
 	return Redirect::route('front.blog');
 });
-// Route::get('/',function(){
-// 	// return \App\User::first();
-// 	//return array_keys(config('customConfig.roles'));
-// 	return redirect()->route('login');
-// });
+
 
 
 

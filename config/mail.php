@@ -54,7 +54,7 @@ return array(
     |
     */
 
-    'from' => array('address' => 'infancy.itbd@gmail.com', 'name' => 'Uniliver Building Sign Up'),
+    'from' => array('address' => 'infancy.itbd@gmail.com', 'name' => 'Tech Blog Password Reset'),
 
     /*
     |--------------------------------------------------------------------------
