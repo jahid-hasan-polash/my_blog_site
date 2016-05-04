@@ -84,7 +84,8 @@ class BlogController extends Controller
         $blog->title = $request->title;
         $blog->details = $request->details;
         $blog->tag = $request->tag;
-        $blog->meta_data = str_slug($request->title, "-");
+        //$blog->meta_data = str_slug($request->title, "-");
+        $blog->meta_data = md5($request->title);
         $blog->user_id =  \Auth::user()->id;
         $blog->save();
 
@@ -129,7 +130,8 @@ class BlogController extends Controller
         $blog->title = $request->title;
         $blog->details = $request->details;
         $blog->tag = $request->tag;
-        $blog->meta_data = str_slug($request->title, "-");
+        //$blog->meta_data = str_slug($request->title, "-");
+        $blog->meta_data = md5($request->title);
         //$blog->image = $request->image;
         $blog->save();
 
