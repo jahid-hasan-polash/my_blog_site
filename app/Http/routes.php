@@ -90,9 +90,8 @@ Route::group(array('middleware' => 'auth'), function() {
 		Route::get('blog', array('as' => 'blog.index', 'uses' => 'BlogController@index'));
 
 		//support/ help
-		Route::get('help',function(){
-			return View::make('Help')->with('title','Account And ID');
-		});
+		Route::get('help', array('as' => 'help', 'uses' => 'UsersController@help'));
+
 
 
 
@@ -126,35 +125,9 @@ Route::get('error', array('as' => 'error', 'uses' => 'FrontViewController@error'
 
 
 
-Route::get('test',function(){
-
-	$a= 'গিটের ';
-
-
-	$string = preg_replace( '/[«»""!?,.!@£$%^&*{};:()]+/', '', $a );
-	$string = strtolower($string);
-	return $slug=preg_replace('/[ ]+/', '-', $string);
 
 
 
-});
-
-
-
-//
-//use Carbon\Carbon;
-//
-//Route::get('chart',function(){
-//	$visitorTraffic = \App\Blog::where('created_at', '>=', \Carbon\Carbon::now()->subMonth())
-//                            ->groupBy('date')
-//		                    ->orderBy('date', 'DESC')
-//		                   ->get(array(DB::raw('Date(created_at) as date'), DB::raw('COUNT(*) as "blog"')
-//						   ));
-//
-//	return $visitorTraffic;
-//});
-//
-//
 
 
 

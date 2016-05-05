@@ -137,4 +137,9 @@ class UsersController extends Controller
 
         return redirect()->route('user.index')->with('success', "User Successfully deleted");
     }
+
+    //3rd party account information
+    public function help(){
+          return view('help')->with('title','3rd Party Account Information');
+    }
 }
