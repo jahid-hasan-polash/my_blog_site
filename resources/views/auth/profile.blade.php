@@ -126,27 +126,26 @@
 
                 <div id="photo-upload" class="tab-pane">
                             <div class="user-profile-content">
-                            {!! Form::open(array('route' => 'photo.store', 'method' => 'put', 'files' => true))  !!}
-
-                            <div class="fileupload-new thumbnail" style="width: 200px; height: 200px;">
-                                {!! Html::image(Auth::user()->profiles->img_url, 'alt', array()) !!}
-                            </div>
 
 
-                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;"></div>
-                            <div>
-                                 <span class="btn btn-white btn-file" style="width: 300px; height: 50px;">
-                                        <span class="fileupload-new">
-                                             {!!  Form::file('image', array('class' => 'form-control')) !!}
-                                        </span>
-                                  </span>
-                            </div>
+                                <div class="photo-upload">
+                                    {!! Form::open(array('route' => 'photo.store', 'method' => 'put', 'files' => true)) !!}
+                                    <fieldset>
+                                        <label>UPLOAD PICTURE:</label>
+                                        <br/>
+                                        <img class="preview" id="preview" alt=" " src="{!!asset(Auth::user()->profiles->img_url)!!}">
+                                        <br/>
+                                        <br/>
+                                        <input type="file" name="image" id="imgInp" onchange="loadFile(event);">
+                                    </fieldset>
 
-                            <br><br>
+                                    <fieldset>
+                                        {!! Form::submit('Update Avatar', array('class' => 'btn btn-primary')) !!}
+                                    </fieldset>
 
-                            {!!  Form::submit('Update Avatar', array('class' => 'btn btn-primary')) !!}
+                                    {!! Form::close() !!}
+                                </div>
 
-                            {!! Form::close() !!}
                         </div>
                  </div>
 
@@ -318,6 +317,9 @@
 
     {!! Html::style('css/chosen_dropdown/chosen.css') !!}
     {!! Html::style('//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css') !!}
+    {!! Html::style('assets/datatables/jquery.dataTables.min.css') !!}
+
+    {!! Html::style('css/photo_upload.css') !!}
 
 @stop
 
@@ -327,6 +329,8 @@
 
     {!! Html::script('js/chosen_dropdown/chosen.jquery.min.js') !!}
     {!! Html::script('js/ckeditor/ckeditor.js') !!}
+
+    {!! Html::script('js/photo_upload.js') !!}
 
     //for Datatable
     <script type="text/javascript">

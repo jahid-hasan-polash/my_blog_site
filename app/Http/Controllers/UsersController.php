@@ -98,7 +98,7 @@ class UsersController extends Controller
                 }else{
                     User::destroy($user->id);
                     return redirect()->back()
-                        ->with('error','Something went wrong.Please Try again.');;
+                        ->with('error','Something went wrong.Please Try again.');
                 }
             }else{
                 return redirect()->back()

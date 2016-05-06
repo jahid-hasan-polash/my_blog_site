@@ -81,10 +81,16 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @stop
 
+
+@section('style')
+
+    {!! Html::style('assets/datatables/jquery.dataTables.min.css') !!}
+
+@stop
 @section('script')
 
     {!! Html::script('assets/datatables/jquery.dataTables.min.js') !!}
