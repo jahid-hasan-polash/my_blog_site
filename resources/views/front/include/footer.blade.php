@@ -5,10 +5,11 @@
             <div class="col-lg-3 col-sm-3">
                 <h1>contact info</h1>
                 <address>
-                    <p>Address: Flat-C1, Elahi-8B, Akhalia,</p>
+                    <p>SUST CSE Developer Network,</p>
+                    <p>Department of Computer Science and Engineering,</p>
+                    <p>Shahjalal University of Science and Technology,</p>
                     <p>Sylhet, Bangladesh</p>
-                    <p>Phone : (+88) 01967402131</p>
-                    <p>Email : <a href="javascript:;">talhaqc@gmail.com</a></p>
+                    {{--<p>Email : <a href="javascript:;">talhaqc@gmail.com</a></p>--}}
                 </address>
             </div>
             <div class="col-lg-5 col-sm-5">
@@ -27,7 +28,7 @@
             <div class="col-lg-3 col-sm-3 col-lg-offset-1">
                 <h1>stay connected</h1>
                 <ul class="social-link-footer list-unstyled">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.facebook.com/scdnlab/" target="_blank"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>

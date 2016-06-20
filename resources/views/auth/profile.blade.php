@@ -234,7 +234,7 @@
                                                             <th>id</th>
                                                             <th>Title</th>
                                                             <th>Tag</th>
-                                                            <th>Image</th>
+                                                            {{--<th>Image</th>--}}
                                                             <th>Meta Data/ Url</th>
                                                             <th>Created at</th>
                                                             <th>Details</th>
@@ -248,7 +248,7 @@
                                                                 <td>{!! $blogs->id !!}</td>
                                                                 <td>{!! $blogs->title !!}</td>
                                                                 <td>{!! $blogs->tag !!}</td>
-                                                                <td> <img class="" src="{!! $blogs->img_thumbnail !!}" alt=""></td>
+                                                                {{--<td> <img class="" src="{!! $blogs->img_thumbnail !!}" alt=""></td>--}}
                                                                 <td>{!! $blogs->meta_data !!}</td>
                                                                 <td>{!! $blogs->created_at->format('Y-m-d') !!}</td>
                                                                 <td> <a><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal_{!!$blogs->id!!}" >Details</button></a></td>
@@ -264,7 +264,8 @@
                                                                         <center>
                                                                             <div class="modal-header">
                                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                                <h4 class="modal-title"><img class="img-circle" src="{!! $blogs->img_thumbnail !!}" alt="" align="left">{!! $blogs->title!!}</h4>
+                                                                                {{--<h4 class="modal-title"><img class="img-circle" src="{!! $blogs->img_thumbnail !!}" alt="" align="left"></h4> --}}
+                                                                               <h4> {!! $blogs->title!!}</h4>
                                                                             </div>
                                                                             <div class="modal-body" >
                                                                                 <p><b>Id: </b>{!! $blogs->id!!}</p>

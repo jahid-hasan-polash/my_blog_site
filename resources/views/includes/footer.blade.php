@@ -1,6 +1,6 @@
 <!-- Footer Start -->
 <footer class="footer">
-	Copyright &copy; Tech Blog, Bangladesh. All rights reserved.
+	Copyright &copy; SUST CSE Developer Network.
 </footer>
 <!-- Footer Ends -->
 

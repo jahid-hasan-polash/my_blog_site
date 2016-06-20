@@ -31,7 +31,7 @@ class FrontViewController extends Controller
 //            ->orderBy('month', 'desc')
 //            ->get();
 
-        return view('front.blog', compact('blog','recent','tag'))->with('title',"Tech Blog :||: Sust CSE'12 ");
+        return view('front.blog', compact('blog','recent','tag'))->with('title',"SCDN Blog :||: SCDN Lab ");
     }
 
 
@@ -138,7 +138,7 @@ class FrontViewController extends Controller
 
             $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
 
-            return view('front.archive', compact('blog','recent','tag'))->with('title',"Archive :||: Tech Blog");
+            return view('front.archive', compact('blog','recent','tag'))->with('title',"Archive :||:  SCDN Lab Blog");
         }catch(Exception $e){
             return "Sorry, Page not Found ";
         }
@@ -149,7 +149,7 @@ class FrontViewController extends Controller
     //error
     /*==================================================*/
     public function error(){
-        return view('error')->with('title','Tech :||: Unauthorized Page');
+        return view('error')->with('title',' SCDN Lab :||: Unauthorized Page');
     }
 
 

@@ -10,7 +10,7 @@
                     <span class="fa fa-bar"></span>
                     <span class="fa fa-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{!! route('front.blog') !!}">Tech <span> Blog</span></a>
+                <a class="navbar-brand" href="{!! route('front.blog') !!}">SCDN <span> Blog</span></a>
                 {!!   Html::image('http://www.prohad.com/images/beta.png', 'a picture', array('class' => 'thumb','width' => 90 , 'height' => 90))!!}
             </div>
 

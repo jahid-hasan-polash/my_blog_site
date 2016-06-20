@@ -2,7 +2,7 @@
 
 return [
     'names' =>[
-        'siteName' => 'Tech Blog'
+        'siteName' => 'SCDN Blog'
     ],
     'roles' =>[
         'admin' => 'Admin',
