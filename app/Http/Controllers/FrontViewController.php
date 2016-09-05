@@ -44,7 +44,7 @@ class FrontViewController extends Controller
             $tag= Tag::all();
             $blog = Blog::where('meta_data','=',$meta_data)->first();
             $recent= Blog::take(3)->orderBy('id','desc')->get(); //recent 3 news
-            return view('front.blog_details', compact('blog','recent','tag'))->with('title',"Details :||:  $meta_data" );
+            return view('front.blog_details', compact('blog','recent','tag'))->with('title',"Details ||". $blog->title );
         }catch(Exception $e){
             return "Sorry, Page not Found ";
         }
