@@ -3,8 +3,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Talha">
-    <meta name="keyword" content="Tech Blog">
+    <meta name="keyword" content="SCDN, SUST, CSE,Blog, Developer, Network, ">
 
+	<!-- 
+	Md. Abu Talha,
+	CSE 2012 Batch,
+	SUST.
+	Proud to be a Developer. :) 
+	-->
+	
     {!! Html::favicon('favicon.ico') !!}
 
     <title>{!! $title !!}</title>
